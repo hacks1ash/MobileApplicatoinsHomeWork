@@ -1,6 +1,6 @@
 package com.example.hackslash.first
 
-public class Tools {
+class Tools {
     companion object {
         @JvmStatic val EMAIL_REGEX = "^[A-Za-z](.*)([@]{1})(.{1,})(.)(.{1,})";
         fun isEmailValid(email: String): Boolean {
