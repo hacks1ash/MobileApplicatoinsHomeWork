@@ -1,5 +1,6 @@
 package com.example.hackslash.first
 
+import java.util.regex.Pattern
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -31,7 +32,7 @@ class RegisterActivity : AppCompatActivity() {
         }else if(repeatpasswordRegisterEditText.text.toString().isEmpty()){
             Toast.makeText(this,"Please repeat password", Toast.LENGTH_SHORT).show()
         } else {
-            if (Tools.isEmailValid(emailRegisterEditText.text.toString())){
+            if (isEmailValid(emailRegisterEditText.text.toString())){
                 if(passwordRegisterEditText.text.toString().equals(repeatpasswordRegisterEditText.text.toString())) {
                     success()
                 }else{
@@ -45,5 +46,16 @@ class RegisterActivity : AppCompatActivity() {
     private fun success() {
         val main = Intent(this, MainActivity::class.java)
         startActivity(main)
+    }
+
+    fun isEmailValid(email: String): Boolean {
+        return Pattern.compile(
+            "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]|[\\w-]{2,}))@"
+                    + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                    + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                    + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                    + "[0-9]{1,2}|25[0-5]|2[0-4][0-9]))|"
+                    + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$"
+        ).matcher(email).matches()
     }
 }
