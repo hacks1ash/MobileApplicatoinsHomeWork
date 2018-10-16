@@ -1,10 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".RegisterActivity">
-
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+            android:layout_gravity="top"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <EditText
+                android:paddingLeft="10dp"
+                android:textColorHint="#FF0000"
+                android:maxLines="1"
+                android:inputType="text"
+                android:id="@+id/firstnameRegisterEditText"
+                android:hint="Enter first name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <EditText
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:textColorHint="#FF0000"
+                android:maxLines="1"
+                android:inputType="text"
+                android:id="@+id/lastnameRegisterEditText"
+                android:hint="Enter last name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <EditText
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:textColorHint="#FF0000"
+                android:maxLines="1"
+                android:inputType="textEmailAddress"
+                android:id="@+id/emailRegisterEditText"
+                android:hint="Enter email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <EditText
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:textColorHint="#FF0000"
+                android:maxLines="1"
+                android:inputType="textPassword"
+                android:id="@+id/passwordRegisterEditText"
+                android:hint="Enter password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        <EditText
+                android:layout_marginTop="10dp"
+                android:paddingLeft="10dp"
+                android:textColorHint="#FF0000"
+                android:maxLines="1"
+                android:inputType="textPassword"
+                android:id="@+id/repeatpasswordRegisterEditText"
+                android:hint="Repeat Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <Button
+            android:id="@+id/registerActivityButton"
+            android:textColor="#FFFFFF"
+            android:background="#FF0000"
+            android:textAllCaps="false"
+            android:text="Register"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+</FrameLayout>
