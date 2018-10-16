@@ -44,8 +44,8 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
     private fun success() {
-        val main = Intent(this, MainActivity::class.java)
-        startActivity(main)
+        val mainActivity = Intent(this, MainActivity::class.java)
+        startActivity(mainActivity)
     }
 
     fun isEmailValid(email: String): Boolean {
