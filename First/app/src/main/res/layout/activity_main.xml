@@ -6,7 +6,8 @@
         android:orientation="vertical"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
     <EditText
             android:id="@+id/email"
             android:inputType="textEmailAddress"

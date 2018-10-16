@@ -9,22 +9,19 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var editText: EditText
-
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         Check.setOnClickListener {
-            editText = findViewById<View>(R.id.email) as EditText
-            val email = editText.text.toString()
-            editText = findViewById<View>(R.id.password) as EditText
-            val password = editText.text.toString()
-
-            if (email == "email@example.com" && password == "password") {
-                val intent = Intent(this, activity_galley::class.java)
-                startActivity(intent)
-            }
+            authorize()
+        }
+    }
+    private fun authorize() {
+        if (email.text.toString().equals("email@example.com") && password.text.toString().equals("password")) {
+            val intent = Intent(this, activity_galley::class.java)
+            startActivity(intent)
         }
     }
 }
+
