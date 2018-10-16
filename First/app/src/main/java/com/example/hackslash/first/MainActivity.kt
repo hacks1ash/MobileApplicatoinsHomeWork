@@ -21,12 +21,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun authorize() {
-        val gallery = Intent(this, activity_galley::class.java)
-        startActivity(gallery)
+        val galleryActivity = Intent(this, activity_galley::class.java)
+        startActivity(galleryActivity)
     }
     private fun register(){
-        val register = Intent(this, RegisterActivity::class.java)
-        startActivity(register)
+        val registerActivity = Intent(this, RegisterActivity::class.java)
+        startActivity(registerActivity)
     }
 
     private fun checkallfields(){
