@@ -6,7 +6,7 @@ import kotlinx.android.synthetic.main.activity_galley.*
 
 class activity_galley : AppCompatActivity() {
 
-    var photo: Boolean = false
+    private var photo: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,7 +15,7 @@ class activity_galley : AppCompatActivity() {
         photo_activity_gallery.setImageResource(R.mipmap.mario)
 
         photobutton.setOnClickListener{
-            if (photo == true){
+            if (photo){
                 photo_activity_gallery.setImageResource(R.mipmap.mario)
                 photo = false
             }
