@@ -53,6 +53,15 @@
                 android:text="Register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+        <Button
+                android:layout_marginTop="5dp"
+                android:textColor="#FFFFFF"
+                android:background="#FF0000"
+                android:id="@+id/navigationdrawerButton"
+                android:textAllCaps="false"
+                android:text="Navigation Drawer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
     </LinearLayout>
     
 </FrameLayout>

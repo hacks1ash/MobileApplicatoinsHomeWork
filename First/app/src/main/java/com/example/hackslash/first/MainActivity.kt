@@ -19,14 +19,10 @@ class MainActivity : AppCompatActivity() {
         registerMainActivityButton.setOnClickListener{
             register()
         }
-    }
-    private fun authorize() {
-        val galleryActivity = Intent(this, activity_galley::class.java)
-        startActivity(galleryActivity)
-    }
-    private fun register(){
-        val registerActivity = Intent(this, RegisterActivity::class.java)
-        startActivity(registerActivity)
+
+        navigationdrawerButton.setOnClickListener {
+            navigation()
+        }
     }
 
     private fun checkallfields(){
@@ -37,10 +33,23 @@ class MainActivity : AppCompatActivity() {
         }else if(passwordMainActivityEditText.text.toString().isEmpty()){
             Toast.makeText(this,"Please enter your password", Toast.LENGTH_SHORT).show()
         }else if(emailMainActivityEditText.text.toString().equals("email@example.com") && passwordMainActivityEditText.text.toString().equals("password")) {
-            authorize()
+            gallery()
         }else{
             Toast.makeText(this,"Email or Password is incorrect", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun gallery() {
+        val galleryActivity = Intent(this, activity_galley::class.java)
+        startActivity(galleryActivity)
+    }
+    fun register(){
+        val registerActivity = Intent(this, RegisterActivity::class.java)
+        startActivity(registerActivity)
+    }
+    fun navigation(){
+        val navigationActivity = Intent(this, NavigationDrawer::class.java)
+        startActivity(navigationActivity)
     }
 
 }

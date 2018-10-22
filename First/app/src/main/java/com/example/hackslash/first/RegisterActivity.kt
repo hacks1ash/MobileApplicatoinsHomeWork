@@ -34,7 +34,7 @@ class RegisterActivity : AppCompatActivity() {
         } else {
             if (isEmailValid(emailRegisterEditText.text.toString())){
                 if(passwordRegisterEditText.text.toString().equals(repeatpasswordRegisterEditText.text.toString())) {
-                    success()
+                    signin()
                 }else{
                     Toast.makeText(this,"Passwords do not match", Toast.LENGTH_SHORT).show()
                 }
@@ -43,12 +43,8 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
-    private fun success() {
-        val mainActivity = Intent(this, MainActivity::class.java)
-        startActivity(mainActivity)
-    }
 
-    fun isEmailValid(email: String): Boolean {
+    private fun isEmailValid(email: String): Boolean {
         return Pattern.compile(
             "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]|[\\w-]{2,}))@"
                     + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
@@ -58,4 +54,10 @@ class RegisterActivity : AppCompatActivity() {
                     + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$"
         ).matcher(email).matches()
     }
+
+    fun signin() {
+        val signinActivity = Intent(this, MainActivity::class.java)
+        startActivity(signinActivity)
+    }
+
 }
