@@ -27,7 +27,7 @@
         <activity android:name=".MainActivity">
 
         </activity>
-        <activity android:name=".activity_galley"/>
+        <activity android:name=".ActivityGallery"/>
         <activity android:name=".RegisterActivity"/>
 
     </application>

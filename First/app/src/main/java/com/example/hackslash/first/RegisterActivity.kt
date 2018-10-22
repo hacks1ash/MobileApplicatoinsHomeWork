@@ -55,7 +55,7 @@ class RegisterActivity : AppCompatActivity() {
         ).matcher(email).matches()
     }
 
-    fun signin() {
+    private fun signin() {
         val signinActivity = Intent(this, MainActivity::class.java)
         startActivity(signinActivity)
     }

@@ -39,15 +39,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun gallery() {
-        val galleryActivity = Intent(this, activity_galley::class.java)
+    private fun gallery() {
+        val galleryActivity = Intent(this, ActivityGallery::class.java)
         startActivity(galleryActivity)
     }
-    fun register(){
+    private fun register(){
         val registerActivity = Intent(this, RegisterActivity::class.java)
         startActivity(registerActivity)
     }
-    fun navigation(){
+    private fun navigation(){
         val navigationActivity = Intent(this, NavigationDrawer::class.java)
         startActivity(navigationActivity)
     }
