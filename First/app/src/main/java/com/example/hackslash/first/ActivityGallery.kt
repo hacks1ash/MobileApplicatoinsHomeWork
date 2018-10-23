@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_galley.*
 
-class activity_galley : AppCompatActivity() {
+class ActivityGallery : AppCompatActivity() {
 
     private var photo: Boolean = false
 
