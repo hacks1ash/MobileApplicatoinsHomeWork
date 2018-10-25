@@ -25,17 +25,20 @@ class SignInFragment : Fragment() {
 
     }
 
-    private fun checkAllFields(){
-        if (emailMainActivityEditText.text.toString().isEmpty() && passwordMainActivityEditText.text.toString().isEmpty()){
-            Toast.makeText(activity,"Please fill all fields", Toast.LENGTH_SHORT).show()
-        }else if(emailMainActivityEditText.text.toString().isEmpty()){
-            Toast.makeText(activity,"Please enter your email", Toast.LENGTH_SHORT).show()
-        }else if(passwordMainActivityEditText.text.toString().isEmpty()){
-            Toast.makeText(activity,"Please enter your password", Toast.LENGTH_SHORT).show()
-        }else if(emailMainActivityEditText.text.toString().equals("email@example.com") && passwordMainActivityEditText.text.toString().equals("password")) {
+    private fun checkAllFields() {
+        if (emailMainActivityEditText.text.toString().isEmpty() && passwordMainActivityEditText.text.toString().isEmpty()) {
+            Toast.makeText(activity, "Please fill all fields", Toast.LENGTH_SHORT).show()
+        } else if (emailMainActivityEditText.text.toString().isEmpty()) {
+            Toast.makeText(activity, "Please enter your email", Toast.LENGTH_SHORT).show()
+        } else if (passwordMainActivityEditText.text.toString().isEmpty()) {
+            Toast.makeText(activity, "Please enter your password", Toast.LENGTH_SHORT).show()
+        } else if (emailMainActivityEditText.text.toString().equals("email@example.com") && passwordMainActivityEditText.text.toString().equals(
+                "password"
+            )
+        ) {
             galleryFragment()
-        }else{
-            Toast.makeText(activity,"Email or Password is incorrect", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(activity, "Email or Password is incorrect", Toast.LENGTH_SHORT).show()
         }
     }
 

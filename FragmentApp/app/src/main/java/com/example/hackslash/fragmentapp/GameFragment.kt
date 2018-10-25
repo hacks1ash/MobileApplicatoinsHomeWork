@@ -36,7 +36,7 @@ class GameFragment : Fragment() {
     }
 
     private fun clickButtons(button: Button) {
-        if(button.text.toString().isEmpty()) {
+        if (button.text.toString().isEmpty()) {
             if (clicked) {
                 button.text = "X"
                 clicked = false
@@ -52,42 +52,52 @@ class GameFragment : Fragment() {
                 gameFragamentBtn3.text.toString()
             )
         ) {
-            Toast.makeText(activity, gameFragamentBtn1.text.toString() + " is the Winner", Toast.LENGTH_LONG).show()
+            checkEmpty(gameFragamentBtn1, gameFragamentBtn2, gameFragamentBtn3)
         } else if (gameFragamentBtn4.text.toString().equals(gameFragamentBtn5.text.toString()) && gameFragamentBtn4.text.toString().equals(
                 gameFragamentBtn6.text.toString()
             )
         ) {
-            Toast.makeText(activity, gameFragamentBtn4.text.toString() + " is the Winner", Toast.LENGTH_LONG).show()
+            checkEmpty(gameFragamentBtn4, gameFragamentBtn5, gameFragamentBtn6)
         } else if (gameFragamentBtn7.text.toString().equals(gameFragamentBtn8.text.toString()) && gameFragamentBtn7.text.toString().equals(
                 gameFragamentBtn9.text.toString()
             )
         ) {
-            Toast.makeText(activity, gameFragamentBtn7.text.toString() + " is the Winner", Toast.LENGTH_LONG).show()
+            checkEmpty(gameFragamentBtn7, gameFragamentBtn8, gameFragamentBtn9)
         } else if (gameFragamentBtn1.text.toString().equals(gameFragamentBtn4.text.toString()) && gameFragamentBtn1.text.toString().equals(
                 gameFragamentBtn7.text.toString()
             )
         ) {
-            Toast.makeText(activity, gameFragamentBtn1.text.toString() + " is the Winner", Toast.LENGTH_LONG).show()
+            checkEmpty(gameFragamentBtn1, gameFragamentBtn4, gameFragamentBtn7)
         } else if (gameFragamentBtn2.text.toString().equals(gameFragamentBtn5.text.toString()) && gameFragamentBtn2.text.toString().equals(
                 gameFragamentBtn8.text.toString()
             )
         ) {
-            Toast.makeText(activity, gameFragamentBtn2.text.toString() + " is the Winner", Toast.LENGTH_LONG).show()
+            checkEmpty(gameFragamentBtn2, gameFragamentBtn5, gameFragamentBtn8)
         } else if (gameFragamentBtn3.text.toString().equals(gameFragamentBtn6.text.toString()) && gameFragamentBtn3.text.toString().equals(
                 gameFragamentBtn9.text.toString()
             )
         ) {
-            Toast.makeText(activity, gameFragamentBtn3.text.toString() + " is the Winner", Toast.LENGTH_LONG).show()
+            checkEmpty(gameFragamentBtn3, gameFragamentBtn6, gameFragamentBtn9)
         } else if (gameFragamentBtn1.text.toString().equals(gameFragamentBtn5.text.toString()) && gameFragamentBtn1.text.toString().equals(
                 gameFragamentBtn9.text.toString()
             )
         ) {
-            Toast.makeText(activity, gameFragamentBtn1.text.toString() + " is the Winner", Toast.LENGTH_LONG).show()
+            checkEmpty(gameFragamentBtn1, gameFragamentBtn5, gameFragamentBtn9)
         } else if (gameFragamentBtn3.text.toString().equals(gameFragamentBtn5.text.toString()) && gameFragamentBtn3.text.toString().equals(
                 gameFragamentBtn7.text.toString()
             )
         ) {
-            Toast.makeText(activity, gameFragamentBtn3.text.toString() + " is the Winner", Toast.LENGTH_LONG).show()
+            checkEmpty(gameFragamentBtn3, gameFragamentBtn5, gameFragamentBtn7)
+        }
+    }
+
+    private fun checkEmpty(btn1: Button, btn2: Button, btn3: Button) {
+        if (!btn1.text.toString().isEmpty() && !btn2.text.toString().isEmpty() && !btn3.text.toString().isEmpty()) {
+            if (btn1.text.toString().equals("X")) {
+                Toast.makeText(activity, "Player 1 is the Winner", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(activity, "Player 2 is the Winner", Toast.LENGTH_LONG).show()
+            }
         }
     }
 }
