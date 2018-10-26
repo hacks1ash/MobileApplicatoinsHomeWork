@@ -37,13 +37,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.mainMenuGalleyItem -> { galleryFragment() }
-
-            R.id.mainMenuResgiterItem -> { registerFragment() }
-
-            R.id.mainMenuSignInItem -> { signInFragment() }
-
-            R.id.mainMenuGameItem -> { gameFragment() }
+            R.id.mainMenuGalleyItem -> {
+                galleryFragment()
+            }
+            R.id.mainMenuResgiterItem -> {
+                registerFragment()
+            }
+            R.id.mainMenuSignInItem -> {
+                signInFragment()
+            }
+            R.id.mainMenuGameItem -> {
+                gameFragment()
+            }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true

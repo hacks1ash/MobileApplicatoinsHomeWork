@@ -24,15 +24,15 @@ class GameFragment : Fragment() {
     }
 
     private fun checkClick() {
-        gameFragamentBtn1.setOnClickListener { clickButtons(gameFragamentBtn1);checkWinner() }
-        gameFragamentBtn2.setOnClickListener { clickButtons(gameFragamentBtn2);checkWinner() }
-        gameFragamentBtn3.setOnClickListener { clickButtons(gameFragamentBtn3);checkWinner() }
-        gameFragamentBtn4.setOnClickListener { clickButtons(gameFragamentBtn4);checkWinner() }
-        gameFragamentBtn5.setOnClickListener { clickButtons(gameFragamentBtn5);checkWinner() }
-        gameFragamentBtn6.setOnClickListener { clickButtons(gameFragamentBtn6);checkWinner() }
-        gameFragamentBtn7.setOnClickListener { clickButtons(gameFragamentBtn7);checkWinner() }
-        gameFragamentBtn8.setOnClickListener { clickButtons(gameFragamentBtn8);checkWinner() }
-        gameFragamentBtn9.setOnClickListener { clickButtons(gameFragamentBtn9);checkWinner() }
+        gameFragmentBtn1.setOnClickListener { clickButtons(gameFragmentBtn1);checkWinner() }
+        gameFragmentBtn2.setOnClickListener { clickButtons(gameFragmentBtn2);checkWinner() }
+        gameFragmentBtn3.setOnClickListener { clickButtons(gameFragmentBtn3);checkWinner() }
+        gameFragmentBtn4.setOnClickListener { clickButtons(gameFragmentBtn4);checkWinner() }
+        gameFragmentBtn5.setOnClickListener { clickButtons(gameFragmentBtn5);checkWinner() }
+        gameFragmentBtn6.setOnClickListener { clickButtons(gameFragmentBtn6);checkWinner() }
+        gameFragmentBtn7.setOnClickListener { clickButtons(gameFragmentBtn7);checkWinner() }
+        gameFragmentBtn8.setOnClickListener { clickButtons(gameFragmentBtn8);checkWinner() }
+        gameFragmentBtn9.setOnClickListener { clickButtons(gameFragmentBtn9);checkWinner() }
     }
 
     private fun clickButtons(button: Button) {
@@ -48,55 +48,55 @@ class GameFragment : Fragment() {
     }
 
     private fun checkWinner() {
-        if (gameFragamentBtn1.text.toString().equals(gameFragamentBtn2.text.toString()) && gameFragamentBtn1.text.toString().equals(
-                gameFragamentBtn3.text.toString()
+        if (gameFragmentBtn1.text.toString().equals(gameFragmentBtn2.text.toString()) && gameFragmentBtn1.text.toString().equals(
+                gameFragmentBtn3.text.toString()
             )
         ) {
-            checkEmpty(gameFragamentBtn1, gameFragamentBtn2, gameFragamentBtn3)
-        } else if (gameFragamentBtn4.text.toString().equals(gameFragamentBtn5.text.toString()) && gameFragamentBtn4.text.toString().equals(
-                gameFragamentBtn6.text.toString()
+            checkEmpty(gameFragmentBtn1, gameFragmentBtn2, gameFragmentBtn3)
+        } else if (gameFragmentBtn4.text.toString().equals(gameFragmentBtn5.text.toString()) && gameFragmentBtn4.text.toString().equals(
+                gameFragmentBtn6.text.toString()
             )
         ) {
-            checkEmpty(gameFragamentBtn4, gameFragamentBtn5, gameFragamentBtn6)
-        } else if (gameFragamentBtn7.text.toString().equals(gameFragamentBtn8.text.toString()) && gameFragamentBtn7.text.toString().equals(
-                gameFragamentBtn9.text.toString()
+            checkEmpty(gameFragmentBtn4, gameFragmentBtn5, gameFragmentBtn6)
+        } else if (gameFragmentBtn7.text.toString().equals(gameFragmentBtn8.text.toString()) && gameFragmentBtn7.text.toString().equals(
+                gameFragmentBtn9.text.toString()
             )
         ) {
-            checkEmpty(gameFragamentBtn7, gameFragamentBtn8, gameFragamentBtn9)
-        } else if (gameFragamentBtn1.text.toString().equals(gameFragamentBtn4.text.toString()) && gameFragamentBtn1.text.toString().equals(
-                gameFragamentBtn7.text.toString()
+            checkEmpty(gameFragmentBtn7, gameFragmentBtn8, gameFragmentBtn9)
+        } else if (gameFragmentBtn1.text.toString().equals(gameFragmentBtn4.text.toString()) && gameFragmentBtn1.text.toString().equals(
+                gameFragmentBtn7.text.toString()
             )
         ) {
-            checkEmpty(gameFragamentBtn1, gameFragamentBtn4, gameFragamentBtn7)
-        } else if (gameFragamentBtn2.text.toString().equals(gameFragamentBtn5.text.toString()) && gameFragamentBtn2.text.toString().equals(
-                gameFragamentBtn8.text.toString()
+            checkEmpty(gameFragmentBtn1, gameFragmentBtn4, gameFragmentBtn7)
+        } else if (gameFragmentBtn2.text.toString().equals(gameFragmentBtn5.text.toString()) && gameFragmentBtn2.text.toString().equals(
+                gameFragmentBtn8.text.toString()
             )
         ) {
-            checkEmpty(gameFragamentBtn2, gameFragamentBtn5, gameFragamentBtn8)
-        } else if (gameFragamentBtn3.text.toString().equals(gameFragamentBtn6.text.toString()) && gameFragamentBtn3.text.toString().equals(
-                gameFragamentBtn9.text.toString()
+            checkEmpty(gameFragmentBtn2, gameFragmentBtn5, gameFragmentBtn8)
+        } else if (gameFragmentBtn3.text.toString().equals(gameFragmentBtn6.text.toString()) && gameFragmentBtn3.text.toString().equals(
+                gameFragmentBtn9.text.toString()
             )
         ) {
-            checkEmpty(gameFragamentBtn3, gameFragamentBtn6, gameFragamentBtn9)
-        } else if (gameFragamentBtn1.text.toString().equals(gameFragamentBtn5.text.toString()) && gameFragamentBtn1.text.toString().equals(
-                gameFragamentBtn9.text.toString()
+            checkEmpty(gameFragmentBtn3, gameFragmentBtn6, gameFragmentBtn9)
+        } else if (gameFragmentBtn1.text.toString().equals(gameFragmentBtn5.text.toString()) && gameFragmentBtn1.text.toString().equals(
+                gameFragmentBtn9.text.toString()
             )
         ) {
-            checkEmpty(gameFragamentBtn1, gameFragamentBtn5, gameFragamentBtn9)
-        } else if (gameFragamentBtn3.text.toString().equals(gameFragamentBtn5.text.toString()) && gameFragamentBtn3.text.toString().equals(
-                gameFragamentBtn7.text.toString()
+            checkEmpty(gameFragmentBtn1, gameFragmentBtn5, gameFragmentBtn9)
+        } else if (gameFragmentBtn3.text.toString().equals(gameFragmentBtn5.text.toString()) && gameFragmentBtn3.text.toString().equals(
+                gameFragmentBtn7.text.toString()
             )
         ) {
-            checkEmpty(gameFragamentBtn3, gameFragamentBtn5, gameFragamentBtn7)
+            checkEmpty(gameFragmentBtn3, gameFragmentBtn5, gameFragmentBtn7)
         }
     }
 
     private fun checkEmpty(btn1: Button, btn2: Button, btn3: Button) {
         if (!btn1.text.toString().isEmpty() && !btn2.text.toString().isEmpty() && !btn3.text.toString().isEmpty()) {
             if (btn1.text.toString().equals("X")) {
-                Toast.makeText(activity, "Player 1 is the Winner", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, R.string.first_player_winner, Toast.LENGTH_LONG).show()
             } else {
-                Toast.makeText(activity, "Player 2 is the Winner", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, R.string.second_player_winner, Toast.LENGTH_LONG).show()
             }
         }
     }

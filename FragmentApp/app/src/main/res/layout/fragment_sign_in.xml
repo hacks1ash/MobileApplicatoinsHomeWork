@@ -20,7 +20,7 @@
                 android:textColorHint="#FF0000"
                 android:paddingLeft="10dp"
                 android:id="@+id/emailMainActivityEditText"
-                android:hint="Enter your email"
+                android:hint="@string/email_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         <EditText
@@ -29,7 +29,7 @@
                 android:paddingLeft="10dp"
                 android:layout_marginTop="15dp"
                 android:id="@+id/passwordMainActivityEditText"
-                android:hint="Enter your password"
+                android:hint="@string/password_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -44,7 +44,7 @@
                 android:background="#FF0000"
                 android:id="@+id/signinMainActivityButton"
                 android:textAllCaps="false"
-                android:text="Sign in"
+                android:text="@string/sign_in_btc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         <Button
@@ -53,7 +53,7 @@
                 android:background="#FF0000"
                 android:id="@+id/registerMainActivityButton"
                 android:textAllCaps="false"
-                android:text="Register"
+                android:text="@string/register_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 

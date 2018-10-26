@@ -18,9 +18,7 @@ class GalleryFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        photo_activity_gallery.setImageResource(R.mipmap.lc_mario)
-
-        photobutton.setOnClickListener {
+        photoButton.setOnClickListener {
             if (photo) {
                 photo_activity_gallery.setImageResource(R.mipmap.lc_mario)
                 photo = false

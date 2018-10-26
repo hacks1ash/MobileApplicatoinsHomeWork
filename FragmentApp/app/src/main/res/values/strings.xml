@@ -1,5 +1,26 @@
 <resources>
-    <string name="app_name">Hackslash</string>
+    <string name="app_name">Fragment</string>
     <string name="drawer_open">Open Navigation</string>
     <string name="drawer_close">Close Navigation</string>
+    <string name="email_input">Enter your email</string>
+    <string name="password_input">Enter your password</string>
+    <string name="first_name_input">Enter first name</string>
+    <string name="last_name_input">Enter last name</string>
+    <string name="repeat_password_input">Repeat password</string>
+    <string name="sign_in_btc">Sign In</string>
+    <string name="register_btn">Register</string>
+    <string name="invalid_email">Please enter valid email</string>
+    <string name="all_fields_empty">Please fill the fields</string>
+    <string name="first_name_empty">Please enter your first name</string>
+    <string name="last_name_empty">Please enter your last name</string>
+    <string name="email_empty">Please enter your email</string>
+    <string name="password_empty">Please enter your password</string>
+    <string name="repeat_password_empty">Please repeat your password</string>
+    <string name="password_no_match">Passwords do not match</string>
+    <string name="incorrect_authorization">Email or password incorrect</string>
+    <string name="first_player_winner">Player 1 is winner</string>
+    <string name="second_player_winner">Player 2 is winner</string>
+    <string name="next_image_btn">Next Image</string>
+    <string name="user_name">Mikheil Maisuradze</string>
+    <string name="user_email">mikheil.maisuradze.1@btu.edu.ge</string>
 </resources>
