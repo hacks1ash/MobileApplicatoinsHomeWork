@@ -56,7 +56,8 @@ class DataAdmin : Fragment() {
         users.forEach {
             var tv_user = TextView(activity)
             tv_user.textSize = 30F
-            tv_user.text = it.firstName + it.lastName + it.email + it.password + it.userId + it.logged
+            tv_user.text = it.userId.toString() + " " + it.firstName + " " + it.lastName + " " + it.email + " " +
+                    it.password + " " + it.logged
             ll_entries.addView(tv_user)
         }
         textview_result.text = "Fetched " + users.size + " users"
@@ -68,7 +69,8 @@ class DataAdmin : Fragment() {
         users.forEach {
             var tv_user = TextView(activity)
             tv_user.textSize = 30F
-            tv_user.text = it.firstName + it.lastName + it.email + it.password + it.userId + it.logged
+            tv_user.text = it.userId.toString() + " " + it.firstName + " " + it.lastName + " " + it.email + " " +
+                    it.password + " " + it.logged
             ll_entries.addView(tv_user)
         }
         textview_result.text = "Fetched " + users.size + " users"
