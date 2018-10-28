@@ -69,7 +69,7 @@ class SignInFragment : Fragment() {
     }
 
     private fun checkCredentials(email: String, password: String): Boolean {
-        var users = Database(this.activity!!).readUser(email)
+        val users = Database(this.activity!!).readUser(email)
         users.forEach {
             userPassword = it.password
         }

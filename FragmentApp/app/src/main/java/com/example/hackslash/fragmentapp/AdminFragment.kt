@@ -54,7 +54,7 @@ class AdminFragment : Fragment() {
         val users = Database(this.activity!!).readAllUsers()
         ll_entries.removeAllViews()
         users.forEach {
-            var tv_user = TextView(activity)
+            val tv_user = TextView(activity)
             tv_user.textSize = 30F
             tv_user.text = it.userId.toString() + " " + it.firstName + " " + it.lastName + " " + it.email + " " +
                     it.password + " " + it.logged
@@ -67,7 +67,7 @@ class AdminFragment : Fragment() {
         val users = Database(this.activity!!).readUser(email)
         ll_entries.removeAllViews()
         users.forEach {
-            var tv_user = TextView(activity)
+            val tv_user = TextView(activity)
             tv_user.textSize = 30F
             tv_user.text = it.userId.toString() + " " + it.firstName + " " + it.lastName + " " + it.email + " " +
                     it.password + " " + it.logged

@@ -58,8 +58,8 @@ class RegisterFragment : Fragment() {
     }
 
     private fun register() {
-        var firstName = firstnameRegisterEditText.text.toString()
-        var lastName = lastnameRegisterEditText.text.toString()
+        val firstName = firstnameRegisterEditText.text.toString()
+        val lastName = lastnameRegisterEditText.text.toString()
         val email = emailRegisterEditText.text.toString()
         val password = passwordRegisterEditText.text.toString()
         Database(this.activity!!).insertUser(
