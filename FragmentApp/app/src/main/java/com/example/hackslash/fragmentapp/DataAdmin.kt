@@ -27,11 +27,11 @@ class DataAdmin : Fragment() {
     }
 
     private fun addUser() {
-        var firstName = edittext_first_name.text.toString()
-        var lastName = edittext_last_name.text.toString()
-        var email = edittext_email.text.toString()
-        var password = edittext_password.text.toString()
-        var result = DataBase(this.activity!!).insertUser(
+        val firstName = edittext_first_name.text.toString()
+        val lastName = edittext_last_name.text.toString()
+        val email = edittext_email.text.toString()
+        val password = edittext_password.text.toString()
+        val result = Database(this.activity!!).insertUser(
             User(
                 null,
                 firstName = firstName,
@@ -51,7 +51,7 @@ class DataAdmin : Fragment() {
     }
 
     private fun showAllUsers() {
-        var users = DataBase(this.activity!!).readAllUsers()
+        val users = Database(this.activity!!).readAllUsers()
         ll_entries.removeAllViews()
         users.forEach {
             var tv_user = TextView(activity)
@@ -62,8 +62,8 @@ class DataAdmin : Fragment() {
         textview_result.text = "Fetched " + users.size + " users"
     }
 
-    private fun showUser(email: String) {
-        var users = DataBase(this.activity!!).readUser(email)
+    private fun showUserByEmail(email: String) {
+        val users = Database(this.activity!!).readUser(email)
         ll_entries.removeAllViews()
         users.forEach {
             var tv_user = TextView(activity)
@@ -75,8 +75,7 @@ class DataAdmin : Fragment() {
     }
 
     private fun deleteUser() {
-        var email = edittext_email.text.toString()
-        val result = DataBase(this.activity!!).deleteUser(email)
-        ll_entries.removeAllViews()
+        val email = edittext_email.text.toString()
+        Database(this.activity!!).deleteUser(email)
     }
 }

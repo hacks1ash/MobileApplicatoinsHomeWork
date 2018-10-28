@@ -62,7 +62,7 @@ class RegisterFragment : Fragment() {
         var lastName = lastnameRegisterEditText.text.toString()
         val email = emailRegisterEditText.text.toString()
         val password = passwordRegisterEditText.text.toString()
-        DataBase(this.activity!!).insertUser(
+        Database(this.activity!!).insertUser(
             User(
                 null,
                 firstName = firstName,

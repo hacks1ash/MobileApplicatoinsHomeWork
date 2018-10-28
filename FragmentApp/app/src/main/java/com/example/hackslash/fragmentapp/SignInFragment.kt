@@ -69,7 +69,7 @@ class SignInFragment : Fragment() {
     }
 
     private fun checkCredentials(email: String, password: String): Boolean {
-        var users = DataBase(this.activity!!).readUser(email)
+        var users = Database(this.activity!!).readUser(email)
         users.forEach {
             userPassword = it.password
         }
@@ -77,6 +77,6 @@ class SignInFragment : Fragment() {
     }
 
     private fun loggedIn(email:String) {
-        DataBase(this.activity!!).signInUpdate(email)
+        Database(this.activity!!).signInUpdate(email)
     }
 }
