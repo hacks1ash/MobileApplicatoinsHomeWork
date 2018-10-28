@@ -11,5 +11,7 @@
               android:title="Sign In"/>
         <item android:id="@+id/mainMenuResgiterItem"
               android:title="Register"/>
+        <item android:id="@+id/mainMenuAdminItem"
+              android:title="Admin"/>
     </group>
 </menu>

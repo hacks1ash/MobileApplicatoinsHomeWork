@@ -49,6 +49,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.mainMenuGameItem -> {
                 gameFragment()
             }
+            R.id.mainMenuAdminItem -> {
+                adminFragment()
+            }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
@@ -90,4 +93,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         transaction.commit()
     }
 
+    private fun adminFragment() {
+        val fragment = DataAdmin()
+        val manager = supportFragmentManager
+        val transaction = manager.beginTransaction()
+        transaction.replace(R.id.contentConstraintLayout, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
 }
+

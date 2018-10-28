@@ -37,6 +37,7 @@ class RegisterFragment : Fragment() {
         } else {
             if (Utils().isEmailValid(emailRegisterEditText.text.toString())) {
                 if (passwordRegisterEditText.text.toString().equals(repeatpasswordRegisterEditText.text.toString())) {
+                    register()
                     signInFragment()
                 } else {
                     Toast.makeText(activity, R.string.password_no_match, Toast.LENGTH_SHORT).show()
@@ -54,5 +55,22 @@ class RegisterFragment : Fragment() {
         transaction?.replace(R.id.contentConstraintLayout, fragment)
         transaction?.addToBackStack(null)
         transaction?.commit()
+    }
+
+    private fun register() {
+        var firstName = firstnameRegisterEditText.text.toString()
+        var lastName = lastnameRegisterEditText.text.toString()
+        val email = emailRegisterEditText.text.toString()
+        val password = passwordRegisterEditText.text.toString()
+        DataBase(this.activity!!).insertUser(
+            User(
+                null,
+                firstName = firstName,
+                lastName = lastName,
+                email = email,
+                password = password,
+                logged = "false"
+            )
+        )
     }
 }

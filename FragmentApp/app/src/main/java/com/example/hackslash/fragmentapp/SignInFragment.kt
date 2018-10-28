@@ -10,6 +10,8 @@ import kotlinx.android.synthetic.main.fragment_sign_in.*
 
 class SignInFragment : Fragment() {
 
+    private lateinit var userPassword: String
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_sign_in, container, false)
     }
@@ -32,11 +34,15 @@ class SignInFragment : Fragment() {
             Toast.makeText(activity, R.string.email_empty, Toast.LENGTH_SHORT).show()
         } else if (passwordMainActivityEditText.text.toString().isEmpty()) {
             Toast.makeText(activity, R.string.password_empty, Toast.LENGTH_SHORT).show()
-        } else if (Utils().isEmailValid(emailMainActivityEditText.text.toString())
-            && emailMainActivityEditText.text.toString().equals("email@example.com")
-            && passwordMainActivityEditText.text.toString().equals("password")
-        ) {
-            galleryFragment()
+        } else if (Utils().isEmailValid(emailMainActivityEditText.text.toString())) {
+            if (checkCredentials(
+                    emailMainActivityEditText.text.toString(),
+                    passwordMainActivityEditText.text.toString()
+                )
+            ) {
+                loggedIn(emailMainActivityEditText.text.toString())
+                galleryFragment()
+            }
         } else if (!Utils().isEmailValid(emailMainActivityEditText.text.toString())) {
             Toast.makeText(activity, R.string.invalid_email, Toast.LENGTH_SHORT).show()
         } else {
@@ -62,4 +68,15 @@ class SignInFragment : Fragment() {
         transaction?.commit()
     }
 
+    private fun checkCredentials(email: String, password: String): Boolean {
+        var users = DataBase(this.activity!!).readUser(email)
+        users.forEach {
+            userPassword = it.password
+        }
+        return password == userPassword
+    }
+
+    private fun loggedIn(email:String) {
+        DataBase(this.activity!!).signInUpdate(email)
+    }
 }
