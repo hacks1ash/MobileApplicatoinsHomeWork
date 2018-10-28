@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.fragment_game.*
 
 class GameFragment : Fragment() {
 
-    private var clicked: Boolean = true
+    private var clicked: Boolean = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_game, container, false)
@@ -37,12 +37,12 @@ class GameFragment : Fragment() {
 
     private fun clickButtons(button: Button) {
         if (button.text.toString().isEmpty()) {
-            if (clicked) {
+            if (!clicked) {
                 button.text = "X"
-                clicked = false
+                clicked = true
             } else {
                 button.text = "O"
-                clicked = true
+                clicked = false
             }
         }
     }
