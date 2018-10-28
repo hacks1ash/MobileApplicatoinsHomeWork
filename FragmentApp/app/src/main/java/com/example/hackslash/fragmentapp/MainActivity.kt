@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun adminFragment() {
-        val fragment = DataAdmin()
+        val fragment = AdminFragment()
         val manager = supportFragmentManager
         val transaction = manager.beginTransaction()
         transaction.replace(R.id.contentConstraintLayout, fragment)
