@@ -1,5 +1,6 @@
 package com.example.hackslash.fragmentapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
-            super.onBackPressed()
+            finish()
         }
     }
 
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.mainMenuGalleyItem -> {
                 galleryFragment()
             }
-            R.id.mainMenuResgiterItem -> {
+            R.id.mainMenuRegisterItem -> {
                 registerFragment()
             }
             R.id.mainMenuSignInItem -> {
@@ -51,6 +52,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.mainMenuAdminItem -> {
                 adminFragment()
+            }
+            R.id.mainMenuCalculatorItem -> {
+                calculatorFragment()
+            }
+            R.id.mainMenuSignOutItem -> {
+                signOut()
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
@@ -100,6 +107,16 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         transaction.replace(R.id.contentConstraintLayout, fragment)
         transaction.addToBackStack(null)
         transaction.commit()
+    }
+
+    private fun calculatorFragment(){
+        val calculator = Intent(this,CalculatorActivity::class.java)
+        startActivity(calculator)
+    }
+
+    private fun signOut() {
+        Database(this).signOutUpdate()
+        signInFragment()
     }
 }
 

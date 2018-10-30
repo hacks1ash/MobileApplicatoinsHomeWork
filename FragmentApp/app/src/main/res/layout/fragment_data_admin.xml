@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
@@ -17,26 +16,26 @@
                 android:hint="First Name"
                 android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
         <EditText
                 android:id="@+id/edittext_last_name"
                 android:hint="Last Name"
                 android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
         <EditText
                 android:id="@+id/edittext_email"
                 android:hint="Email"
                 android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
         <EditText
                 android:id="@+id/edittext_password"
                 android:hint="Password"
                 android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
@@ -48,30 +47,41 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Add" />
+                android:text="Add"
+                android:textColor="@color/white"
+                android:background="@drawable/roundedbutton"
+                android:layout_margin="10dp"/>
 
         <Button
                 android:id="@+id/button_delete_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Delete" />
+                android:text="Delete"
+                android:textColor="@color/white"
+                android:background="@drawable/roundedbutton"
+                android:layout_margin="10dp"/>
 
         <Button
+                android:textColor="@color/white"
                 android:id="@+id/button_show_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Show All" />
+                android:text="Show All"
+                android:background="@drawable/roundedbutton"
+                android:layout_margin="10dp"/>
     </LinearLayout>
     <TextView
             android:id="@+id/textview_result"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"/>
     <LinearLayout
             android:id="@+id/ll_entries"
             android:padding="15dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></LinearLayout>
+            android:layout_height="wrap_content">
+
+    </LinearLayout>
 </LinearLayout>

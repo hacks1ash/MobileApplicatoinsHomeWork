@@ -76,7 +76,7 @@ class SignInFragment : Fragment() {
         return password == userPassword
     }
 
-    private fun loggedIn(email:String) {
+    private fun loggedIn(email: String) {
         Database(this.activity!!).signInUpdate(email)
     }
 }

@@ -8,10 +8,14 @@
         <item android:id="@+id/mainMenuGameItem"
               android:title="Game"/>
         <item android:id="@+id/mainMenuSignInItem"
-              android:title="Sign In"/>
-        <item android:id="@+id/mainMenuResgiterItem"
-              android:title="Register"/>
+              android:title="@string/sign_in_btc"/>
+        <item android:id="@+id/mainMenuRegisterItem"
+              android:title="@string/register_btn"/>
+        <item android:id="@+id/mainMenuCalculatorItem"
+              android:title="Calculator"/>
         <item android:id="@+id/mainMenuAdminItem"
               android:title="Admin"/>
+        <item android:id="@+id/mainMenuSignOutItem"
+              android:title="Sign out"/>
     </group>
 </menu>

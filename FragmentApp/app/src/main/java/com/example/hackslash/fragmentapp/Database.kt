@@ -32,6 +32,7 @@ class Database(context: Context) :SQLiteOpenHelper(context, DATABASE_NAME, null,
 
         db.insert(DatabaseInfo.UserEntry.TABLE_NAME, null, values)
 
+        db.close()
         return true
     }
 
@@ -41,9 +42,11 @@ class Database(context: Context) :SQLiteOpenHelper(context, DATABASE_NAME, null,
         val selection = DatabaseInfo.UserEntry.COLUMN_EMAIL + " LIKE ?"
         val selectionArgs = arrayOf(email)
         db.delete(DatabaseInfo.UserEntry.TABLE_NAME, selection,selectionArgs)
+        db.close()
         return true
     }
 
+    @Throws(SQLiteConstraintException::class)
     fun signInUpdate(email:String):Boolean {
         val db =writableDatabase
         val values = ContentValues()
@@ -51,19 +54,23 @@ class Database(context: Context) :SQLiteOpenHelper(context, DATABASE_NAME, null,
         val selection = DatabaseInfo.UserEntry.COLUMN_EMAIL + " =?"
         val selectionArgs = arrayOf(email)
         db.update(DatabaseInfo.UserEntry.TABLE_NAME,values,selection,selectionArgs)
+        db.close()
         return true
     }
 
-    fun signOutUpdate(email:String):Boolean {
+    @Throws(SQLiteConstraintException::class)
+    fun signOutUpdate():Boolean {
         val db =writableDatabase
         val values = ContentValues()
         values.put(DatabaseInfo.UserEntry.COLUMN_LOGGED, "false")
-        val selection = DatabaseInfo.UserEntry.COLUMN_EMAIL + " =?"
-        val selectionArgs = arrayOf(email)
+        val selection = DatabaseInfo.UserEntry.COLUMN_LOGGED + " =?"
+        val selectionArgs = arrayOf("true")
         db.update(DatabaseInfo.UserEntry.TABLE_NAME,values,selection,selectionArgs)
+        db.close()
         return true
     }
 
+    @Throws(SQLiteConstraintException::class)
     fun readUser(email:String):ArrayList<User>{
         val users = ArrayList<User>()
         val db = writableDatabase
@@ -91,9 +98,12 @@ class Database(context: Context) :SQLiteOpenHelper(context, DATABASE_NAME, null,
                 cursor.moveToNext()
             }
         }
+        cursor.close()
+        db.close()
         return users
     }
 
+    @Throws(SQLiteConstraintException::class)
     fun readAllUsers():ArrayList<User>{
         val users = ArrayList<User>()
         val db = writableDatabase
@@ -124,6 +134,8 @@ class Database(context: Context) :SQLiteOpenHelper(context, DATABASE_NAME, null,
                 cursor.moveToNext()
             }
         }
+        cursor.close()
+        db.close()
         return users
     }
 
@@ -132,7 +144,7 @@ class Database(context: Context) :SQLiteOpenHelper(context, DATABASE_NAME, null,
         val DATABASE_NAME = "FragmentApp.db"
 
         private val SQL_CREATE_ENTRIES = "CREATE TABLE " + DatabaseInfo.UserEntry.TABLE_NAME + " (" +
-                DatabaseInfo.UserEntry.COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTO_INCREMENT," +
+                DatabaseInfo.UserEntry.COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 DatabaseInfo.UserEntry.COLUMN_FIRST_NAME +" TEXT," +
                 DatabaseInfo.UserEntry.COLUMN_LAST_NAME + " TEXT," +
                 DatabaseInfo.UserEntry.COLUMN_EMAIL + " TEXT," +

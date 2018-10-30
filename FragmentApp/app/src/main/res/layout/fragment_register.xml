@@ -74,7 +74,7 @@
     <Button
             android:id="@+id/registerActivityButton"
             android:textColor="#FFFFFF"
-            android:background="#FF0000"
+            android:background="@drawable/roundedbutton"
             android:textAllCaps="false"
             android:text="@string/register_btn"
             android:layout_gravity="bottom"
