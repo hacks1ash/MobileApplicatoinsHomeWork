@@ -60,62 +60,66 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     private fun answer() {
-        val firstEnteredNumber = calculatorEnteredTextView.text.toString().toDouble()
-        val secondEnteredNumber = calculatorTextView.text.toString().toDouble()
-        val function = calculatorFuncTextView.text.toString()
-        when {
-            function.equals("/") -> {
-                if ((firstEnteredNumber / secondEnteredNumber).toInt().compareTo(firstEnteredNumber / secondEnteredNumber) == 0) {
-                    val answer = (firstEnteredNumber / secondEnteredNumber).toInt()
-                    calculatorEnteredTextView.text = ""
-                    calculatorFuncTextView.text = ""
-                    calculatorTextView.text = answer.toString()
-                } else {
-                    val answer = firstEnteredNumber / secondEnteredNumber
-                    calculatorEnteredTextView.text = ""
-                    calculatorFuncTextView.text = ""
-                    calculatorTextView.text = answer.toString()
+        if (!calculatorFuncTextView.text.toString().isEmpty() && !calculatorTextView.text.toString().isEmpty() && !calculatorEnteredTextView.text.toString().isEmpty()) {
+            val firstEnteredNumber = calculatorEnteredTextView.text.toString().toDouble()
+            val secondEnteredNumber = calculatorTextView.text.toString().toDouble()
+            val function = calculatorFuncTextView.text.toString()
+            when {
+                function.equals("/") -> {
+                    if ((firstEnteredNumber / secondEnteredNumber).toInt().compareTo(firstEnteredNumber / secondEnteredNumber) == 0) {
+                        val answer = (firstEnteredNumber / secondEnteredNumber).toInt()
+                        calculatorEnteredTextView.text = ""
+                        calculatorFuncTextView.text = ""
+                        calculatorTextView.text = answer.toString()
+                    } else {
+                        val answer = firstEnteredNumber / secondEnteredNumber
+                        calculatorEnteredTextView.text = ""
+                        calculatorFuncTextView.text = ""
+                        calculatorTextView.text = answer.toString()
+                    }
+                }
+                function.equals("*") -> {
+                    if ((firstEnteredNumber * secondEnteredNumber).toInt().compareTo(firstEnteredNumber * secondEnteredNumber) == 0) {
+                        val answer = (firstEnteredNumber * secondEnteredNumber).toInt()
+                        calculatorEnteredTextView.text = ""
+                        calculatorFuncTextView.text = ""
+                        calculatorTextView.text = answer.toString()
+                    } else {
+                        val answer = firstEnteredNumber * secondEnteredNumber
+                        calculatorEnteredTextView.text = ""
+                        calculatorFuncTextView.text = ""
+                        calculatorTextView.text = answer.toString()
+                    }
+                }
+                function.equals("+") -> {
+                    if ((firstEnteredNumber + secondEnteredNumber).toInt().compareTo(firstEnteredNumber + secondEnteredNumber) == 0) {
+                        val answer = (firstEnteredNumber + secondEnteredNumber).toInt()
+                        calculatorEnteredTextView.text = ""
+                        calculatorFuncTextView.text = ""
+                        calculatorTextView.text = answer.toString()
+                    } else {
+                        val answer = firstEnteredNumber + secondEnteredNumber
+                        calculatorEnteredTextView.text = ""
+                        calculatorFuncTextView.text = ""
+                        calculatorTextView.text = answer.toString()
+                    }
+                }
+                function.equals("-") -> {
+                    if ((firstEnteredNumber - secondEnteredNumber).toInt().compareTo(firstEnteredNumber - secondEnteredNumber) == 0) {
+                        val answer = (firstEnteredNumber - secondEnteredNumber).toInt()
+                        calculatorEnteredTextView.text = ""
+                        calculatorFuncTextView.text = ""
+                        calculatorTextView.text = answer.toString()
+                    } else {
+                        val answer = firstEnteredNumber - secondEnteredNumber
+                        calculatorEnteredTextView.text = ""
+                        calculatorFuncTextView.text = ""
+                        calculatorTextView.text = answer.toString()
+                    }
                 }
             }
-            calculatorFuncTextView.text.toString().equals("*") -> {
-                if ((firstEnteredNumber * secondEnteredNumber).toInt().compareTo(firstEnteredNumber * secondEnteredNumber) == 0) {
-                    val answer = (firstEnteredNumber * secondEnteredNumber).toInt()
-                    calculatorEnteredTextView.text = ""
-                    calculatorFuncTextView.text = ""
-                    calculatorTextView.text = answer.toString()
-                } else {
-                    val answer = firstEnteredNumber * secondEnteredNumber
-                    calculatorEnteredTextView.text = ""
-                    calculatorFuncTextView.text = ""
-                    calculatorTextView.text = answer.toString()
-                }
-            }
-            calculatorFuncTextView.text.toString().equals("+") -> {
-                if ((firstEnteredNumber + secondEnteredNumber).toInt().compareTo(firstEnteredNumber + secondEnteredNumber) == 0) {
-                    val answer = (firstEnteredNumber + secondEnteredNumber).toInt()
-                    calculatorEnteredTextView.text = ""
-                    calculatorFuncTextView.text = ""
-                    calculatorTextView.text = answer.toString()
-                } else {
-                    val answer = firstEnteredNumber + secondEnteredNumber
-                    calculatorEnteredTextView.text = ""
-                    calculatorFuncTextView.text = ""
-                    calculatorTextView.text = answer.toString()
-                }
-            }
-            calculatorFuncTextView.text.toString().equals("-") -> {
-                if ((firstEnteredNumber - secondEnteredNumber).toInt().compareTo(firstEnteredNumber - secondEnteredNumber) == 0) {
-                    val answer = (firstEnteredNumber - secondEnteredNumber).toInt()
-                    calculatorEnteredTextView.text = ""
-                    calculatorFuncTextView.text = ""
-                    calculatorTextView.text = answer.toString()
-                } else {
-                    val answer = firstEnteredNumber - secondEnteredNumber
-                    calculatorEnteredTextView.text = ""
-                    calculatorFuncTextView.text = ""
-                    calculatorTextView.text = answer.toString()
-                }
-            }
+            operable = true
         }
+
     }
 }
