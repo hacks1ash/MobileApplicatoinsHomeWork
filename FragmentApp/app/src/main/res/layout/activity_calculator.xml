@@ -208,8 +208,7 @@
                     android:textSize="20sp"
                     android:background="@color/calculatorFunctions"
                     android:textColor="@color/white"
-                    android:id="@+id/calculatorButtonDelete"
-                    android:onClick="clearNumbers"/>
+                    android:id="@+id/calculatorButtonDelete"/>
             <Button android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
