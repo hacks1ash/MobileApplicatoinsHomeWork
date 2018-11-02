@@ -49,7 +49,7 @@
                 android:layout_weight="1"
                 android:text="Add"
                 android:textColor="@color/white"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/rounded_button"
                 android:layout_margin="10dp"/>
 
         <Button
@@ -59,7 +59,7 @@
                 android:layout_weight="1"
                 android:text="Delete"
                 android:textColor="@color/white"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/rounded_button"
                 android:layout_margin="10dp"/>
 
         <Button
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Show All"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/rounded_button"
                 android:layout_margin="10dp"/>
     </LinearLayout>
     <TextView

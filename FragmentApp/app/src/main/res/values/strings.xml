@@ -23,4 +23,7 @@
     <string name="next_image_btn">Next Image</string>
     <string name="user_name">Mikheil Maisuradze</string>
     <string name="user_email">mikheil.maisuradze.1@btu.edu.ge</string>
+    <string name="play_again">Play Again</string>
+    <string name="draw">Draw</string>
+    <string name="exit">Exit</string>
 </resources>

@@ -41,7 +41,7 @@
             android:layout_height="wrap_content">
         <Button
                 android:textColor="#FFFFFF"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/rounded_button"
                 android:id="@+id/signinMainActivityButton"
                 android:textAllCaps="false"
                 android:text="@string/sign_in_btc"
@@ -50,7 +50,7 @@
         <Button
                 android:layout_marginTop="5dp"
                 android:textColor="#FFFFFF"
-                android:background="@drawable/roundedbutton"
+                android:background="@drawable/rounded_button"
                 android:id="@+id/registerMainActivityButton"
                 android:textAllCaps="false"
                 android:text="@string/register_btn"

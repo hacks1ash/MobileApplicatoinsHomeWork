@@ -19,7 +19,7 @@
             android:text="@string/next_image_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/roundedbutton"
+            android:background="@drawable/rounded_button"
             android:paddingRight="15dp"
             android:paddingLeft="15dp"
             android:paddingTop="10dp"
