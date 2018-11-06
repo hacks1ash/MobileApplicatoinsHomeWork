@@ -36,7 +36,7 @@ class RegisterFragment : Fragment() {
             Toast.makeText(activity, R.string.repeat_password_empty, Toast.LENGTH_SHORT).show()
         } else {
             if (Utils().isEmailValid(emailRegisterEditText.text.toString())) {
-                if (passwordRegisterEditText.text.toString().equals(repeatpasswordRegisterEditText.text.toString())) {
+                if (passwordRegisterEditText.text.toString() == repeatpasswordRegisterEditText.text.toString()) {
                     register()
                     signInFragment()
                 } else {

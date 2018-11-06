@@ -1,5 +1,6 @@
 package com.example.hackslash.fragmentapp
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -26,6 +27,7 @@ class AdminFragment : Fragment() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun addUser() {
         val firstName = edittext_first_name.text.toString()
         val lastName = edittext_last_name.text.toString()
@@ -50,28 +52,30 @@ class AdminFragment : Fragment() {
         ll_entries.removeAllViews()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun showAllUsers() {
         val users = Database(this.activity!!).readAllUsers()
         ll_entries.removeAllViews()
         users.forEach {
-            val tv_user = TextView(activity)
-            tv_user.textSize = 30F
-            tv_user.text = it.userId.toString() + " " + it.firstName + " " + it.lastName + " " + it.email + " " +
+            val tvUser = TextView(activity)
+            tvUser.textSize = 30F
+            tvUser.text = it.userId.toString() + " " + it.firstName + " " + it.lastName + " " + it.email + " " +
                     it.password + " " + it.logged
-            ll_entries.addView(tv_user)
+            ll_entries.addView(tvUser)
         }
         textview_result.text = "Fetched " + users.size + " users"
     }
 
+    @SuppressLint("SetTextI18n")
     private fun showUserByEmail(email: String) {
         val users = Database(this.activity!!).readUser(email)
         ll_entries.removeAllViews()
         users.forEach {
-            val tv_user = TextView(activity)
-            tv_user.textSize = 30F
-            tv_user.text = it.userId.toString() + " " + it.firstName + " " + it.lastName + " " + it.email + " " +
+            val tvUser = TextView(activity)
+            tvUser.textSize = 30F
+            tvUser.text = it.userId.toString() + " " + it.firstName + " " + it.lastName + " " + it.email + " " +
                     it.password + " " + it.logged
-            ll_entries.addView(tv_user)
+            ll_entries.addView(tvUser)
         }
         textview_result.text = "Fetched " + users.size + " users"
     }

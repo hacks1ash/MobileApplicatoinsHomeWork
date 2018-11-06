@@ -74,7 +74,7 @@ class Database(context: Context) :SQLiteOpenHelper(context, DATABASE_NAME, null,
     fun readUser(email:String):ArrayList<User>{
         val users = ArrayList<User>()
         val db = writableDatabase
-        var cursor: Cursor? = null
+        val cursor: Cursor?
         try {
             cursor = db.rawQuery("select * from " + DatabaseInfo.UserEntry.TABLE_NAME + " WHERE " + DatabaseInfo.UserEntry.COLUMN_EMAIL + "='" +email+"'",null)
         } catch (e: SQLiteException) {
@@ -107,7 +107,7 @@ class Database(context: Context) :SQLiteOpenHelper(context, DATABASE_NAME, null,
     fun readAllUsers():ArrayList<User>{
         val users = ArrayList<User>()
         val db = writableDatabase
-        var cursor: Cursor? = null
+        val cursor: Cursor?
         try {
             cursor = db.rawQuery("select * from " + DatabaseInfo.UserEntry.TABLE_NAME, null)
         } catch (e :SQLiteException){
@@ -140,8 +140,8 @@ class Database(context: Context) :SQLiteOpenHelper(context, DATABASE_NAME, null,
     }
 
     companion object {
-        val DATABASE_VERSION = 1
-        val DATABASE_NAME = "FragmentApp.db"
+        const val DATABASE_VERSION = 1
+        const val DATABASE_NAME = "FragmentApp.db"
 
         private val SQL_CREATE_ENTRIES = "CREATE TABLE " + DatabaseInfo.UserEntry.TABLE_NAME + " (" +
                 DatabaseInfo.UserEntry.COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +

@@ -61,15 +61,15 @@ class GameFragment : Fragment() {
     }
 
     private fun checkWinner(btn1: Button, btn2: Button, btn3: Button) {
-        if (btn1.text.toString().equals(btn2.text.toString()) && btn1.text.toString().equals(btn3.text.toString()) &&
+        if (btn1.text.toString() == btn2.text.toString() && btn1.text.toString() == btn3.text.toString() &&
             checkEmpty(btn1, btn2, btn3)
         ) {
             when {
-                btn1.text.toString().equals("X") -> {
+                btn1.text.toString() == "X" -> {
                     gameWinnerTextView.text = getString(R.string.first_player_winner)
                     winner = true
                 }
-                btn1.text.toString().equals("O") -> {
+                btn1.text.toString() == "O" -> {
                     gameWinnerTextView.text = getString(R.string.second_player_winner)
                     winner = true
                 }

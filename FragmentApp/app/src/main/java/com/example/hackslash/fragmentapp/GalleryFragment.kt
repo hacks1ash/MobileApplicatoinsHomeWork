@@ -19,12 +19,15 @@ class GalleryFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         photoButton.setOnClickListener {
-            if (photo) {
-                photo_activity_gallery.setImageResource(R.mipmap.lc_mario)
-                photo = false
-            } else {
-                photo_activity_gallery.setImageResource(R.mipmap.lc_dino)
-                photo = true
+            photo = when {
+                photo -> {
+                    photo_activity_gallery.setImageResource(R.mipmap.lc_mario)
+                    false
+                }
+                else -> {
+                    photo_activity_gallery.setImageResource(R.mipmap.lc_dino)
+                    true
+                }
             }
         }
     }
