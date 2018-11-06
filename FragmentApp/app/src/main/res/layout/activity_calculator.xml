@@ -70,7 +70,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/calculatorButton7"
-                        android:onClick="numPad"/>
+                        android:onClick="numberOnClick"/>
                 <Button android:textColor="@color/white"
                         android:background="@color/calculatorNumPad"
                         android:textSize="25sp"
@@ -79,7 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/calculatorButton8"
-                        android:onClick="numPad"/>
+                        android:onClick="numberOnClick"/>
                 <Button android:textColor="@color/white"
                         android:background="@color/calculatorNumPad"
                         android:textSize="25sp"
@@ -88,7 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/calculatorButton9"
-                        android:onClick="numPad"/>
+                        android:onClick="numberOnClick"/>
             </LinearLayout>
 
             <LinearLayout
@@ -104,7 +104,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/calculatorButton4"
-                        android:onClick="numPad"/>
+                        android:onClick="numberOnClick"/>
                 <Button android:textColor="@color/white"
                         android:background="@color/calculatorNumPad"
                         android:textSize="25sp"
@@ -113,7 +113,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/calculatorButton5"
-                        android:onClick="numPad"/>
+                        android:onClick="numberOnClick"/>
                 <Button android:textColor="@color/white"
                         android:background="@color/calculatorNumPad"
                         android:textSize="25sp"
@@ -122,7 +122,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/calculatorButton6"
-                        android:onClick="numPad"/>
+                        android:onClick="numberOnClick"/>
             </LinearLayout>
 
             <LinearLayout
@@ -138,7 +138,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/calculatorButton1"
-                        android:onClick="numPad"/>
+                        android:onClick="numberOnClick"/>
                 <Button android:textColor="@color/white"
                         android:background="@color/calculatorNumPad"
                         android:textSize="25sp"
@@ -147,7 +147,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/calculatorButton2"
-                        android:onClick="numPad"/>
+                        android:onClick="numberOnClick"/>
                 <Button android:textColor="@color/white"
                         android:background="@color/calculatorNumPad"
                         android:textSize="25sp"
@@ -156,7 +156,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/calculatorButton3"
-                        android:onClick="numPad"/>
+                        android:onClick="numberOnClick"/>
             </LinearLayout>
 
             <LinearLayout
@@ -172,7 +172,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/calculatorButtonComma"
-                        android:onClick="numPad"/>
+                        android:onClick="numberOnClick"/>
                 <Button android:textColor="@color/white"
                         android:background="@color/calculatorNumPad"
                         android:textSize="25sp"
@@ -181,7 +181,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:id="@+id/calculatorButton0"
-                        android:onClick="numPad"/>
+                        android:onClick="numberOnClick"/>
                 <Button android:textColor="@color/white"
                         android:background="@color/calculatorNumPad"
                         android:textSize="25sp"
@@ -214,7 +214,7 @@
                     android:background="@color/calculatorFunctions"
                     android:textColor="@color/white"
                     android:id="@+id/calculatorButtonDivide"
-                    android:onClick="funcPad"/>
+                    android:onClick="operationsOnClick"/>
             <Button android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -223,7 +223,7 @@
                     android:background="@color/calculatorFunctions"
                     android:textColor="@color/white"
                     android:id="@+id/calculatorButtonMultiply"
-                    android:onClick="funcPad"/>
+                    android:onClick="operationsOnClick"/>
             <Button android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -232,7 +232,7 @@
                     android:background="@color/calculatorFunctions"
                     android:textColor="@color/white"
                     android:id="@+id/calculatorButtonSum"
-                    android:onClick="funcPad"/>
+                    android:onClick="operationsOnClick"/>
             <Button android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -241,7 +241,7 @@
                     android:background="@color/calculatorFunctions"
                     android:textColor="@color/white"
                     android:id="@+id/calculatorButtonMinus"
-                    android:onClick="funcPad"/>
+                    android:onClick="operationsOnClick"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

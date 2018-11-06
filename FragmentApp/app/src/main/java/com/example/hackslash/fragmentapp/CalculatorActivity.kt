@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_calculator.*
+import net.objecthunter.exp4j.ExpressionBuilder
 
 class CalculatorActivity : AppCompatActivity() {
 
@@ -23,11 +24,12 @@ class CalculatorActivity : AppCompatActivity() {
         }
     }
 
+
     override fun onBackPressed() {
         clearNumbers()
     }
 
-    fun numPad(view: View) {
+    fun numberOnClick(view: View) {
         val button = view as Button
         val buttonText = button.text.toString()
         calculatorTextView.append(buttonText)
@@ -41,7 +43,7 @@ class CalculatorActivity : AppCompatActivity() {
         operable = true
     }
 
-    fun funcPad(view: View) {
+    fun operationsOnClick(view: View) {
         val button = view as Button
         val buttonText = button.text.toString()
         if (operable && calculatorFuncTextView.text.toString().isNotEmpty() && calculatorTextView.text.toString().isNotEmpty()) {
@@ -106,4 +108,28 @@ class CalculatorActivity : AppCompatActivity() {
         }
 
     }
+
+    /*fun calculatorOnClick(view: View) {
+        val button = view as Button
+        val buttonText = button.text.toString()
+        calculatorTextView.append(buttonText)
+    }
+
+    fun clearTextView(view: View) {
+        calculatorTextView.text = ""
+    }
+
+    fun equalsOnClick(view: View) {
+        val expression = ExpressionBuilder(calculatorTextView.text.toString()).build()
+        val result = expression.evaluate()
+        val longResult = result.toLong()
+        if (result == longResult.toDouble()) {
+            calculatorTextView.text = ""
+            calculatorTextView.text = longResult.toString()
+        } else {
+            calculatorTextView.text = ""
+            calculatorTextView.text = result.toString()
+        }
+    }*/
+
 }
