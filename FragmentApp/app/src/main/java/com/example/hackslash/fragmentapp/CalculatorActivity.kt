@@ -31,6 +31,7 @@ class CalculatorActivity : AppCompatActivity() {
         val button = view as Button
         val buttonText = button.text.toString()
         calculatorTextView.append(buttonText)
+        operable = true
     }
 
     private fun clearNumbers() {
@@ -41,14 +42,19 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     fun funcPad(view: View) {
-        if (operable && calculatorTextView.text.toString().isNotEmpty()) {
-            val button = view as Button
-            val buttonText = button.text.toString()
-            calculatorFuncTextView.append(buttonText)
+        val button = view as Button
+        val buttonText = button.text.toString()
+        if (operable && calculatorFuncTextView.text.toString().isNotEmpty() && calculatorTextView.text.toString().isNotEmpty()) {
+            answer()
             calculatorEnteredTextView.text = calculatorTextView.text.toString()
             calculatorTextView.text = ""
-            operable = false
+            calculatorFuncTextView.text = buttonText
+        } else if (operable && calculatorTextView.text.toString().isNotEmpty()) {
+            calculatorFuncTextView.text = buttonText
+            calculatorEnteredTextView.text = calculatorTextView.text.toString()
+            calculatorTextView.text = ""
         }
+        operable = false
     }
 
     private fun answer() {
