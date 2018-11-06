@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_calculator.*
-import net.objecthunter.exp4j.ExpressionBuilder
+
+//import net.objecthunter.exp4j.ExpressionBuilder
 
 class CalculatorActivity : AppCompatActivity() {
 
@@ -60,14 +61,14 @@ class CalculatorActivity : AppCompatActivity() {
     }
 
     private fun answer() {
-        if (!calculatorFuncTextView.text.toString().isEmpty() && !calculatorTextView.text.toString().isEmpty() && !calculatorEnteredTextView.text.toString().isEmpty()) {
+        if (calculatorFuncTextView.text.toString().isNotEmpty() && calculatorTextView.text.toString().isNotEmpty() && calculatorEnteredTextView.text.toString().isNotEmpty()) {
             val firstEnteredNumber = calculatorEnteredTextView.text.toString().toDouble()
             val secondEnteredNumber = calculatorTextView.text.toString().toDouble()
             val function = calculatorFuncTextView.text.toString()
             when (function) {
                 ("/") -> {
-                    if ((firstEnteredNumber / secondEnteredNumber).toInt().compareTo(firstEnteredNumber / secondEnteredNumber) == 0) {
-                        val answer = (firstEnteredNumber / secondEnteredNumber).toInt()
+                    if ((firstEnteredNumber / secondEnteredNumber).toLong().compareTo(firstEnteredNumber / secondEnteredNumber) == 0) {
+                        val answer = (firstEnteredNumber / secondEnteredNumber).toLong()
                         calculatorTextView.text = answer.toString()
                     } else {
                         val answer = firstEnteredNumber / secondEnteredNumber
@@ -75,8 +76,8 @@ class CalculatorActivity : AppCompatActivity() {
                     }
                 }
                 ("*") -> {
-                    if ((firstEnteredNumber * secondEnteredNumber).toInt().compareTo(firstEnteredNumber * secondEnteredNumber) == 0) {
-                        val answer = (firstEnteredNumber * secondEnteredNumber).toInt()
+                    if ((firstEnteredNumber * secondEnteredNumber).toLong().compareTo(firstEnteredNumber * secondEnteredNumber) == 0) {
+                        val answer = (firstEnteredNumber * secondEnteredNumber).toLong()
                         calculatorTextView.text = answer.toString()
                     } else {
                         val answer = firstEnteredNumber * secondEnteredNumber
@@ -84,8 +85,8 @@ class CalculatorActivity : AppCompatActivity() {
                     }
                 }
                 ("+") -> {
-                    if ((firstEnteredNumber + secondEnteredNumber).toInt().compareTo(firstEnteredNumber + secondEnteredNumber) == 0) {
-                        val answer = (firstEnteredNumber + secondEnteredNumber).toInt()
+                    if ((firstEnteredNumber + secondEnteredNumber).toLong().compareTo(firstEnteredNumber + secondEnteredNumber) == 0) {
+                        val answer = (firstEnteredNumber + secondEnteredNumber).toLong()
                         calculatorTextView.text = answer.toString()
                     } else {
                         val answer = firstEnteredNumber + secondEnteredNumber
@@ -93,8 +94,8 @@ class CalculatorActivity : AppCompatActivity() {
                     }
                 }
                 ("-") -> {
-                    if ((firstEnteredNumber - secondEnteredNumber).toInt().compareTo(firstEnteredNumber - secondEnteredNumber) == 0) {
-                        val answer = (firstEnteredNumber - secondEnteredNumber).toInt()
+                    if ((firstEnteredNumber - secondEnteredNumber).toLong().compareTo(firstEnteredNumber - secondEnteredNumber) == 0) {
+                        val answer = (firstEnteredNumber - secondEnteredNumber).toLong()
                         calculatorTextView.text = answer.toString()
                     } else {
                         val answer = firstEnteredNumber - secondEnteredNumber
