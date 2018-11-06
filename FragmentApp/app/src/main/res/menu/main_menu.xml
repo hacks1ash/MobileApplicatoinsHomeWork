@@ -4,18 +4,18 @@
       tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item android:id="@+id/mainMenuGalleyItem"
-              android:title="Gallery"/>
+              android:title="@string/gallery"/>
         <item android:id="@+id/mainMenuGameItem"
-              android:title="Game"/>
+              android:title="@string/game"/>
         <item android:id="@+id/mainMenuSignInItem"
               android:title="@string/sign_in_btc"/>
         <item android:id="@+id/mainMenuRegisterItem"
               android:title="@string/register_btn"/>
         <item android:id="@+id/mainMenuCalculatorItem"
-              android:title="Calculator"/>
+              android:title="@string/calculator"/>
         <item android:id="@+id/mainMenuAdminItem"
-              android:title="Admin"/>
+              android:title="@string/admin"/>
         <item android:id="@+id/mainMenuSignOutItem"
-              android:title="Sign out"/>
+              android:title="@string/sign_out"/>
     </group>
 </menu>

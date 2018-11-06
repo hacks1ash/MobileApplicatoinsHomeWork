@@ -26,4 +26,13 @@
     <string name="play_again">Play Again</string>
     <string name="draw">Draw</string>
     <string name="exit">Exit</string>
+    <string name="add_button">Add</string>
+    <string name="delete_button">Delete</string>
+    <string name="show_all_button">Show All</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="gallery">Gallery</string>
+    <string name="game">Game</string>
+    <string name="calculator">Calculator</string>
+    <string name="admin">Admin</string>
+    <string name="sign_out">Sign out</string>
 </resources>

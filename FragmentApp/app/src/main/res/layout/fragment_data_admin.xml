@@ -13,26 +13,26 @@
             android:orientation="vertical">
         <EditText
                 android:id="@+id/edittext_first_name"
-                android:hint="First Name"
+                android:hint="@string/first_name_input"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         <EditText
                 android:id="@+id/edittext_last_name"
-                android:hint="Last Name"
+                android:hint="@string/last_name_input"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         <EditText
                 android:id="@+id/edittext_email"
-                android:hint="Email"
+                android:hint="@string/email_input"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
         <EditText
                 android:id="@+id/edittext_password"
-                android:hint="Password"
+                android:hint="@string/password_input"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Add"
+                android:text="@string/add_button"
                 android:textColor="@color/white"
                 android:background="@drawable/rounded_button"
                 android:layout_margin="10dp"/>
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Delete"
+                android:text="@string/delete_button"
                 android:textColor="@color/white"
                 android:background="@drawable/rounded_button"
                 android:layout_margin="10dp"/>
@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Show All"
+                android:text="@string/show_all_button"
                 android:background="@drawable/rounded_button"
                 android:layout_margin="10dp"/>
     </LinearLayout>
