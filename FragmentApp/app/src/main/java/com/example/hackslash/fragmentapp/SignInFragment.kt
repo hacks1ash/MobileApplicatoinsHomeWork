@@ -18,7 +18,7 @@ class SignInFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        signinMainActivityButton.setOnClickListener {
+        signInMainActivityButton.setOnClickListener {
             checkAllFields()
         }
         registerMainActivityButton.setOnClickListener {

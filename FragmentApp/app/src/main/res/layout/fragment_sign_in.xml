@@ -44,7 +44,7 @@
         <Button
                 android:textColor="#FFFFFF"
                 android:background="@drawable/rounded_button"
-                android:id="@+id/signinMainActivityButton"
+                android:id="@+id/signInMainActivityButton"
                 android:textAllCaps="false"
                 android:text="@string/sign_in_btc"
                 android:layout_width="match_parent"
