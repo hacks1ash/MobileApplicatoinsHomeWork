@@ -22,21 +22,21 @@ class RegisterFragment : Fragment() {
     }
 
     private fun checkAllFields() {
-        if (firstnameRegisterEditText.text.toString().isEmpty() && lastnameRegisterEditText.text.toString().isEmpty() && emailRegisterEditText.text.toString().isEmpty() && passwordRegisterEditText.text.toString().isEmpty() && repeatpasswordRegisterEditText.text.toString().isEmpty()) {
+        if (firstNameRegisterEditText.text.toString().isEmpty() && lastNameRegisterEditText.text.toString().isEmpty() && emailRegisterEditText.text.toString().isEmpty() && passwordRegisterEditText.text.toString().isEmpty() && repeatPasswordRegisterEditText.text.toString().isEmpty()) {
             Toast.makeText(activity, R.string.all_fields_empty, Toast.LENGTH_SHORT).show()
-        } else if (firstnameRegisterEditText.text.toString().isEmpty()) {
+        } else if (firstNameRegisterEditText.text.toString().isEmpty()) {
             Toast.makeText(activity, R.string.first_name_empty, Toast.LENGTH_SHORT).show()
-        } else if (lastnameRegisterEditText.text.toString().isEmpty()) {
+        } else if (lastNameRegisterEditText.text.toString().isEmpty()) {
             Toast.makeText(activity, R.string.last_name_empty, Toast.LENGTH_SHORT).show()
         } else if (emailRegisterEditText.text.toString().isEmpty()) {
             Toast.makeText(activity, R.string.email_empty, Toast.LENGTH_SHORT).show()
         } else if (passwordRegisterEditText.text.toString().isEmpty()) {
             Toast.makeText(activity, R.string.password_empty, Toast.LENGTH_SHORT).show()
-        } else if (repeatpasswordRegisterEditText.text.toString().isEmpty()) {
+        } else if (repeatPasswordRegisterEditText.text.toString().isEmpty()) {
             Toast.makeText(activity, R.string.repeat_password_empty, Toast.LENGTH_SHORT).show()
         } else {
             if (Utils().isEmailValid(emailRegisterEditText.text.toString())) {
-                if (passwordRegisterEditText.text.toString() == repeatpasswordRegisterEditText.text.toString()) {
+                if (passwordRegisterEditText.text.toString() == repeatPasswordRegisterEditText.text.toString()) {
                     register()
                     signInFragment()
                 } else {
@@ -58,8 +58,8 @@ class RegisterFragment : Fragment() {
     }
 
     private fun register() {
-        val firstName = firstnameRegisterEditText.text.toString()
-        val lastName = lastnameRegisterEditText.text.toString()
+        val firstName = firstNameRegisterEditText.text.toString()
+        val lastName = lastNameRegisterEditText.text.toString()
         val email = emailRegisterEditText.text.toString()
         val password = passwordRegisterEditText.text.toString()
         Database(this.activity!!).insertUser(
