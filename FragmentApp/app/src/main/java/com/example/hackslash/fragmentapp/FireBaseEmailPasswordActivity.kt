@@ -3,6 +3,7 @@ package com.example.hackslash.fragmentapp
 import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
+import android.support.annotation.VisibleForTesting
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
@@ -184,7 +185,11 @@ class FireBaseEmailPasswordActivity : AppCompatActivity() {
         }
     }
 
-    private val progressDialog = ProgressDialog(this)
+    @Suppress("DEPRECATION")
+    @VisibleForTesting
+    val progressDialog by lazy {
+        ProgressDialog(this)
+    }
 
     private fun showProgressDialog() {
         progressDialog.setMessage(getString(R.string.loading))
