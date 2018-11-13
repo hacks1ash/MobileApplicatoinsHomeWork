@@ -8,7 +8,8 @@
         <item android:id="@+id/mainMenuGameItem"
               android:title="@string/game"/>
         <item android:id="@+id/mainMenuSignInItem"
-              android:title="@string/sign_in_btc"/>
+              android:title="@string/sign_in_btc"
+              android:visible="true"/>
         <item android:id="@+id/mainMenuRegisterItem"
               android:title="@string/register_btn"/>
         <item android:id="@+id/mainMenuCalculatorItem"

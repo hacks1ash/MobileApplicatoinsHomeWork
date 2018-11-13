@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.fragment_sign_in.*
 
 class SignInFragment : Fragment() {
 
-    private lateinit var userPassword: String
+//    private lateinit var userPassword: String
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_sign_in, container, false)
@@ -19,15 +19,19 @@ class SignInFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         signInMainActivityButton.setOnClickListener {
-            checkAllFields()
+//            checkAllFields()
         }
         registerMainActivityButton.setOnClickListener {
-            registerFragment()
+//            registerFragment()
         }
 
     }
 
-    private fun checkAllFields() {
+    override fun onStart() {
+        super.onStart()
+    }
+
+    /*private fun checkAllFields() {
         if (emailMainActivityEditText.text.toString().isEmpty() && passwordMainActivityEditText.text.toString().isEmpty()) {
             Toast.makeText(activity, R.string.all_fields_empty, Toast.LENGTH_SHORT).show()
         } else if (emailMainActivityEditText.text.toString().isEmpty()) {
@@ -78,5 +82,5 @@ class SignInFragment : Fragment() {
 
     private fun loggedIn(email: String) {
         Database(this.activity!!).signInUpdate(email)
-    }
+    }*/
 }

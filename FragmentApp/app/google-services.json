@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1003509191717",
+    "firebase_url": "https://first-firebase-10016.firebaseio.com",
+    "project_id": "first-firebase-10016",
+    "storage_bucket": "first-firebase-10016.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003509191717:android:feb73a5949f4cd1f",
+        "android_client_info": {
+          "package_name": "com.example.hackslash.fragmentapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003509191717-vf663rqc95etr55qjrq4ha87841bhr4o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHBQvjDQG7AB6ItONC5CAE8n8bqUXmiIo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

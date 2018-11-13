@@ -6,6 +6,7 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.application_bar.*
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 registerFragment()
             }
             R.id.mainMenuSignInItem -> {
-                signInFragment()
+                signIn()
             }
             R.id.mainMenuGameItem -> {
                 gameFragment()
@@ -109,8 +110,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         transaction.commit()
     }
 
-    private fun calculatorFragment(){
-        val calculator = Intent(this,CalculatorActivity::class.java)
+    private fun calculatorFragment() {
+        val calculator = Intent(this, CalculatorActivity::class.java)
         startActivity(calculator)
     }
 
@@ -118,5 +119,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         Database(this).signOutUpdate()
         signInFragment()
     }
+
+    private fun signIn() {
+        val signIn = Intent(this, FireBaseEmailPasswordActivity::class.java)
+        startActivity(signIn)
+    }
+
+    private fun hideItem(menuItemID : Int) {
+        val navigation: NavigationView = findViewById(R.id.navigationView)
+        val menu = navigation.menu
+        menu.findItem(menuItemID).isVisible = false
+    }
+
+    private fun showItem(id : Int) {
+        val navigation: NavigationView = findViewById(R.id.navigationView)
+        val menu = navigation.menu
+        menu.findItem(id).isVisible = true
+    }
+
 }
 

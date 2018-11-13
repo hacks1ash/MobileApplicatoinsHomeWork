@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.hackslash.fragmentapp">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
             android:allowBackup="true"
@@ -22,6 +23,8 @@
                 android:name=".CalculatorActivity"
                 android:parentActivityName=".MainActivity">
         </activity>
+        <activity android:name=".FireBaseEmailPasswordActivity"
+        android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>
