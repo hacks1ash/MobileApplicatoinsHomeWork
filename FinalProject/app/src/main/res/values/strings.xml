@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FinalProject</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="log_in">Login</string>
+    <string name="create_account_text">Don\'t have an Account? Create one</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="sign_out">Sign out</string>
+    <string name="login_register">Login/Register</string>
+    <string name="open_navigation">Open Navigation</string>
+    <string name="close_navigation">Close Navigation</string>
+</resources>

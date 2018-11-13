@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="#000"
+             android:padding="30dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/emailSignInActivityEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corners"
+            android:drawableStart="@drawable/ic_person_icon"
+            android:drawableLeft="@drawable/ic_person_icon"
+            android:drawablePadding="20dp"
+            android:hint="@string/enter_email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:paddingStart="12dp"
+            android:paddingLeft="12dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="12dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="15dp"
+            android:textColor="#616161"
+            android:textColorHint="#616161">
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/passwordSignInActivityEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corners"
+            android:drawableStart="@drawable/ic_key_icon"
+            android:drawableLeft="@drawable/ic_key_icon"
+            android:drawablePadding="16dp"
+            android:hint="@string/enter_password"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:paddingStart="12dp"
+            android:paddingLeft="12dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="12dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="15dp"
+            android:textColor="#616161"
+            android:textColorHint="#616161">
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/logInSignInActivityButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_corners"
+            android:paddingStart="100dp"
+            android:paddingLeft="100dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="100dp"
+            android:paddingRight="100dp"
+            android:paddingBottom="15dp"
+            android:text="@string/log_in"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/createAccountSignInActivityButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:text="@string/create_account_text"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</FrameLayout>

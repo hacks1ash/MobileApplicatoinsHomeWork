@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "369468165787",
+    "firebase_url": "https://hackslash-final.firebaseio.com",
+    "project_id": "hackslash-final",
+    "storage_bucket": "hackslash-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369468165787:android:25e63ca4635542b6",
+        "android_client_info": {
+          "package_name": "com.example.hackslash.finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369468165787-me6c92du7nh5vvkjfkejdf8dig09h8as.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXIDd_O0vCxhcLkVbUCvZO7ftQlcYHJdw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
