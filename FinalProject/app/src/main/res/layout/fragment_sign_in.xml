@@ -41,8 +41,8 @@
                 android:paddingBottom="15dp"
                 android:textColor="#616161"
                 android:textColorHint="#616161"
-                android:focusable="auto">
-        </EditText>
+                android:focusable="auto"/>
+
 
         <EditText
                 android:id="@+id/passwordSignInActivityEditText"

@@ -18,4 +18,5 @@
     <string name="already_have_an_account_sign_in">Already have an account? Sign in</string>
     <string name="reset_password">Reset Password</string>
     <string name="remember_password_login">Remember password? Login</string>
+    <string name="home">Home</string>
 </resources>

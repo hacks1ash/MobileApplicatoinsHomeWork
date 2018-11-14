@@ -20,22 +20,35 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
-
-        val toggle =
-            ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_navigation, R.string.close_navigation)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        navigationView.setNavigationItemSelectedListener(this)
 
         auth = FirebaseAuth.getInstance()
+
+        if (auth.currentUser != null) {
+            setSupportActionBar(toolbar)
+
+            val toggle =
+                ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_navigation, R.string.close_navigation)
+            drawerLayout.addDrawerListener(toggle)
+            toggle.syncState()
+        } else {
+            signInFragment()
+        }
+
+        navigationView.setNavigationItemSelectedListener(this)
     }
 
     override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
         updateUI(currentUser)
+    }
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -47,6 +60,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.mainMenuSignOutItem -> {
                 signOut()
             }
+
+            R.id.mainMenuHome -> {
+                removeFragments()
+            }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
@@ -55,6 +72,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun signOut() {
         auth.signOut()
         updateUI(null)
+        recreate()
     }
 
     private fun updateUI(user: FirebaseUser?) {
@@ -98,6 +116,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val transaction = manager.beginTransaction()
         transaction.replace(R.id.contentConstraintLayout, fragment)
         transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+    private fun removeFragments() {
+        val manager = this.supportFragmentManager
+        val transaction = manager.beginTransaction()
+        supportFragmentManager.findFragmentById(R.id.contentConstraintLayout)?.let { transaction.remove(it) }
         transaction.commit()
     }
 }

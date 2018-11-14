@@ -24,7 +24,10 @@ class RegisterFragment : Fragment() {
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
+
         super.onActivityCreated(savedInstanceState)
+
+        activity?.title = ""
 
         createAccountRegisterActivityButton.setOnClickListener {
             createAccount(

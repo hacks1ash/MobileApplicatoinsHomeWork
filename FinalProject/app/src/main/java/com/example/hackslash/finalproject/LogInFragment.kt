@@ -28,6 +28,9 @@ class LogInFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
 
         super.onActivityCreated(savedInstanceState)
+
+        activity?.title = ""
+
         logInSignInActivityButton.setOnClickListener {
             hideKeyboard(passwordSignInActivityEditText)
             signIn(emailSignInActivityEditText.text.toString(), passwordSignInActivityEditText.text.toString())
