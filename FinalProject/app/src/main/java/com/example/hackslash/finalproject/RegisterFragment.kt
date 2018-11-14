@@ -33,6 +33,10 @@ class RegisterFragment : Fragment() {
             )
         }
 
+        alreadyAccountRegisterActivityButton.setOnClickListener {
+            startLogInFragment()
+        }
+
         auth = FirebaseAuth.getInstance()
     }
 
@@ -76,7 +80,7 @@ class RegisterFragment : Fragment() {
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "UserNameSet:Success")
-                    startRegisterFragment()
+                    startMainActivity()
                 } else {
                     Log.d(TAG, "UserNameSet:Failed")
                     Toast.makeText(activity, "Error Occurred", Toast.LENGTH_SHORT).show()
@@ -152,7 +156,7 @@ class RegisterFragment : Fragment() {
         startActivity(intent)
     }
 
-    private fun startRegisterFragment() {
+    private fun startLogInFragment() {
         val fragment = LogInFragment()
         val manager = activity?.supportFragmentManager
         val transaction = manager?.beginTransaction()

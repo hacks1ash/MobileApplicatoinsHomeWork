@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_sign_in.*
@@ -28,13 +29,29 @@ class LogInFragment : Fragment() {
 
         super.onActivityCreated(savedInstanceState)
         logInSignInActivityButton.setOnClickListener {
-            signIn(emailSignInActivityEditText.text.toString(), passwordSignInActivityEditText.text.toString())
             hideKeyboard(passwordSignInActivityEditText)
+            signIn(emailSignInActivityEditText.text.toString(), passwordSignInActivityEditText.text.toString())
         }
 
         createAccountSignInActivityButton.setOnClickListener {
-            startRegisterFragment()
             hideKeyboard(passwordSignInActivityEditText)
+            startRegisterFragment()
+        }
+
+        resetPasswordSignInActivityButton.setOnClickListener {
+            logInSignInActivityLayout.visibility = View.GONE
+            resetPasswordSignInActivityLayout.visibility = View.VISIBLE
+            hideKeyboard(passwordSignInActivityEditText)
+        }
+
+        resetPasswordButton.setOnClickListener {
+            hideKeyboard(emailResetPassSignInActivityEditText)
+            resetPassword(emailResetPassSignInActivityEditText)
+        }
+
+        backToSignInActivityButton.setOnClickListener {
+            resetPasswordSignInActivityLayout.visibility = View.GONE
+            logInSignInActivityLayout.visibility = View.VISIBLE
         }
 
         auth = FirebaseAuth.getInstance()
@@ -67,6 +84,52 @@ class LogInFragment : Fragment() {
 
             hideProgressDialog()
         }
+    }
+
+    private fun resetPassword(email: EditText) {
+        val resetEmail = email.text.toString()
+        Log.d(TAG, "Password reset : $resetEmail")
+
+        if (!emailValid()) {
+            return
+        }
+
+        showProgressDialog()
+
+        auth.sendPasswordResetEmail(resetEmail)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d(TAG, "Email Sent!")
+                    Toast.makeText(activity, "Reset email sent!", Toast.LENGTH_SHORT).show()
+                    resetPasswordSignInActivityLayout.visibility = View.GONE
+                    logInSignInActivityLayout.visibility = View.VISIBLE
+                    email.text.clear()
+                } else {
+                    Log.d(TAG, "Email Failed")
+                    Toast.makeText(activity, "No user found with this email!", Toast.LENGTH_SHORT).show()
+                    email.text.clear()
+                }
+
+                hideProgressDialog()
+            }
+
+    }
+
+    private fun emailValid(): Boolean {
+        var valid: Boolean
+        val email = emailResetPassSignInActivityEditText.text.toString()
+
+        if (email.isEmpty()) {
+            emailResetPassSignInActivityEditText.error = "Required!"
+            valid = false
+        } else if (email.isNotEmpty() && !Utils().isEmailValid(email)) {
+            emailResetPassSignInActivityEditText.error = "Invalid email!"
+            valid = false
+        } else {
+            valid = true
+        }
+
+        return valid
     }
 
     private fun validInputs(): Boolean {
