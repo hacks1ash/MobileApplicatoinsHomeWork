@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="#000"
+             android:padding="30dp"
+             android:isScrollContainer="true">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:layout_gravity="center"
+                  android:gravity="center">
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_horizontal|top"
+                  android:textColor="#fff"
+                  android:text="@string/create_account"
+                  android:textSize="35sp"
+                  android:layout_marginBottom="25dp"/>
+
+        <ScrollView android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:gravity="center">
+
+                <EditText
+                        android:id="@+id/nameRegisterActivityEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corners"
+                        android:drawableStart="@drawable/ic_person_icon"
+                        android:drawableLeft="@drawable/ic_person_icon"
+                        android:drawablePadding="20dp"
+                        android:hint="@string/enter_your_name"
+                        android:inputType="textPersonName"
+                        android:maxLines="1"
+                        android:paddingStart="12dp"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="15dp"
+                        android:paddingEnd="12dp"
+                        android:paddingRight="12dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="#616161"
+                        android:textColorHint="#616161"
+                        android:focusable="auto">
+                </EditText>
+
+                <EditText
+                        android:id="@+id/emailRegisterActivityEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corners"
+                        android:drawableStart="@drawable/ic_email_icon"
+                        android:drawableLeft="@drawable/ic_email_icon"
+                        android:drawablePadding="20dp"
+                        android:hint="@string/enter_your_email"
+                        android:layout_marginTop="15dp"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:paddingStart="12dp"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="15dp"
+                        android:paddingEnd="12dp"
+                        android:paddingRight="12dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="#616161"
+                        android:textColorHint="#616161"
+                        android:focusable="auto">
+                </EditText>
+
+                <EditText
+                        android:id="@+id/passwordRegisterActivityEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corners"
+                        android:drawableStart="@drawable/ic_key_icon"
+                        android:drawableLeft="@drawable/ic_key_icon"
+                        android:drawablePadding="20dp"
+                        android:hint="@string/enter_passwrod"
+                        android:layout_marginTop="15dp"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:paddingStart="12dp"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="15dp"
+                        android:paddingEnd="12dp"
+                        android:paddingRight="12dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="#616161"
+                        android:textColorHint="#616161"
+                        android:focusable="auto">
+                </EditText>
+
+                <EditText
+                        android:id="@+id/repeatPasswordRegisterActivityEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_corners"
+                        android:drawableStart="@drawable/ic_key_icon"
+                        android:drawableLeft="@drawable/ic_key_icon"
+                        android:drawablePadding="20dp"
+                        android:hint="@string/repeat_password"
+                        android:layout_marginTop="15dp"
+                        android:inputType="textPassword"
+                        android:maxLines="1"
+                        android:paddingStart="12dp"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="15dp"
+                        android:paddingEnd="12dp"
+                        android:paddingRight="12dp"
+                        android:paddingBottom="15dp"
+                        android:textColor="#616161"
+                        android:textColorHint="#616161"
+                        android:focusable="auto">
+                </EditText>
+
+                <Button
+                        android:id="@+id/createAccountRegisterActivityButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/rounded_corners"
+                        android:paddingStart="60dp"
+                        android:paddingLeft="60dp"
+                        android:paddingTop="15dp"
+                        android:paddingEnd="60dp"
+                        android:paddingRight="60dp"
+                        android:paddingBottom="15dp"
+                        android:text="@string/create_account"
+                        android:textAllCaps="false"
+                        android:textSize="20sp"/>
+
+                <Button
+                        android:id="@+id/alreadyAccountRegisterActivityButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/already_have_an_account_sign_in"
+                        android:textAllCaps="false"
+                        android:textColor="#fff"
+                        android:textSize="12sp"/>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+
+</FrameLayout>

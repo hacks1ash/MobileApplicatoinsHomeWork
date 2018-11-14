@@ -9,4 +9,11 @@
     <string name="login_register">Login/Register</string>
     <string name="open_navigation">Open Navigation</string>
     <string name="close_navigation">Close Navigation</string>
+    <string name="forgot_password_reset_now">Forgot Password? Reset Now</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="create_account">Create Account</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="enter_passwrod">Enter Passwrod</string>
+    <string name="repeat_password">Repeat Password</string>
+    <string name="already_have_an_account_sign_in">Already have an account? Sign in</string>
 </resources>

@@ -33,7 +33,8 @@ class LogInFragment : Fragment() {
         }
 
         createAccountSignInActivityButton.setOnClickListener {
-
+            startRegisterFragment()
+            hideKeyboard(passwordSignInActivityEditText)
         }
 
         auth = FirebaseAuth.getInstance()
@@ -101,6 +102,7 @@ class LogInFragment : Fragment() {
         progressDialog.setMessage("Checking...")
         progressDialog.isIndeterminate = true
         progressDialog.show()
+
     }
 
     private fun hideProgressDialog() {
@@ -118,7 +120,18 @@ class LogInFragment : Fragment() {
         startActivity(intent)
     }
 
+    private fun startRegisterFragment() {
+        val fragment = RegisterFragment()
+        val manager = activity?.supportFragmentManager
+        val transaction = manager?.beginTransaction()
+        transaction?.replace(R.id.contentConstraintLayout, fragment)
+        transaction?.addToBackStack(null)
+        transaction?.commit()
+    }
+
     companion object {
         private const val TAG = "LogInFragment"
     }
+
+
 }
