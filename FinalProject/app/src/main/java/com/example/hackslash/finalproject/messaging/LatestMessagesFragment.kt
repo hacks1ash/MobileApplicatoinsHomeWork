@@ -3,23 +3,24 @@ package com.example.hackslash.finalproject.messaging
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.DividerItemDecoration
 import android.view.*
+import com.example.hackslash.finalproject.LatestMessageItem
 import com.example.hackslash.finalproject.MainActivity
 import com.example.hackslash.finalproject.R
+import com.example.hackslash.finalproject.models.ChatMessage
 import com.example.hackslash.finalproject.models.User
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.ViewHolder
+import kotlinx.android.synthetic.main.fragment_latest_messages.*
 
 class LatestMessagesFragment : Fragment() {
 
-    companion object {
-        var currentUser: User? = null
-    }
-
+    private val adapter = GroupAdapter<ViewHolder>()
     private lateinit var auth: FirebaseAuth
+    private val latestMessagesMap = HashMap<String, ChatMessage>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,12 +35,62 @@ class LatestMessagesFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         activity?.title = "Home"
 
+        latestMassagesRecycleView.adapter = adapter
+        latestMassagesRecycleView.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
+        adapter.setOnItemClickListener { item, view ->
+            val intent = Intent(view.context, ChatActivity::class.java)
+
+            val row = item as LatestMessageItem
+            intent.putExtra(NewMessageActivity.USER_KEY, row.chatPartnerUser)
+            startActivity(intent)
+        }
+
         fetchCurrentUser()
+        listenForLatestMessages()
 
         auth = FirebaseAuth.getInstance()
         if (auth.currentUser == null) {
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
+        }
+
+
+    }
+
+    private fun listenForLatestMessages() {
+        val fromId = FirebaseAuth.getInstance().uid
+        val reference = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId")
+        reference.addChildEventListener(object : ChildEventListener {
+            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
+                val chatMessage = p0.getValue(ChatMessage::class.java) ?: return
+                latestMessagesMap[p0.key!!] = chatMessage
+                refreshMessages()
+            }
+
+            override fun onChildChanged(p0: DataSnapshot, p1: String?) {
+                val chatMessage = p0.getValue(ChatMessage::class.java) ?: return
+                latestMessagesMap[p0.key!!] = chatMessage
+                refreshMessages()
+            }
+
+            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
+
+            }
+
+            override fun onChildRemoved(p0: DataSnapshot) {
+
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+        })
+    }
+
+    private fun refreshMessages() {
+        adapter.clear()
+        latestMessagesMap.values.forEach {
+            adapter.add(LatestMessageItem(it))
         }
     }
 
@@ -52,7 +103,7 @@ class LatestMessagesFragment : Fragment() {
             }
 
             override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
         })
     }
@@ -71,5 +122,9 @@ class LatestMessagesFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         inflater?.inflate(R.menu.messenger_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    companion object {
+        var currentUser: User? = null
     }
 }

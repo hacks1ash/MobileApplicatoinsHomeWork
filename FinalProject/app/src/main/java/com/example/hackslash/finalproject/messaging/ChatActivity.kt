@@ -1,8 +1,13 @@
 package com.example.hackslash.finalproject.messaging
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import com.example.hackslash.finalproject.ChatFromItem
+import com.example.hackslash.finalproject.ChatToItem
 import com.example.hackslash.finalproject.R
 import com.example.hackslash.finalproject.models.ChatMessage
 import com.example.hackslash.finalproject.models.User
@@ -11,13 +16,9 @@ import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_chat.*
-import kotlinx.android.synthetic.main.message_from.view.*
-import kotlinx.android.synthetic.main.message_to.view.*
 
 class ChatActivity : AppCompatActivity() {
 
@@ -27,16 +28,17 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
 
+        getMessages()
+
         recycleViewChatActivity.adapter = adapter
 
         val user = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
 
         supportActionBar?.title = user.displayName
 
-        getMessages()
-
         sendButtonChatActivity.setOnClickListener {
             sendMessage()
+            hideKeyboard(messageEditTextChatActivity)
         }
     }
 
@@ -44,7 +46,9 @@ class ChatActivity : AppCompatActivity() {
         val userTo = intent.getParcelableExtra<User>(NewMessageActivity.USER_KEY)
         val from = FirebaseAuth.getInstance().uid
         val to = userTo.uid
+
         val reference = FirebaseDatabase.getInstance().getReference("/messages/$from/$to")
+
 
         reference.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
@@ -62,7 +66,6 @@ class ChatActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onChildChanged(p0: DataSnapshot, p1: String?) {
@@ -80,13 +83,12 @@ class ChatActivity : AppCompatActivity() {
             }
 
             override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onChildRemoved(p0: DataSnapshot) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         })
+
     }
 
 
@@ -116,33 +118,19 @@ class ChatActivity : AppCompatActivity() {
                 messageEditTextChatActivity.text.clear()
                 recycleViewChatActivity.scrollToPosition(adapter.itemCount - 1)
             }
+        val latestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$from/$to")
+        latestMessageRef.setValue(chatMessage)
 
+        val latestMessageToRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$to/$from")
+        latestMessageToRef.setValue(chatMessage)
+    }
+
+    private fun hideKeyboard(view: View) {
+        val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     companion object {
         private const val TAG = "ChatActivity"
-    }
-}
-
-class ChatFromItem(val text: String, val profileUrl: String) : Item<ViewHolder>() {
-    override fun bind(viewHolder: ViewHolder, position: Int) {
-        viewHolder.itemView.fromTextViewChatActivity.text = text
-        Picasso.get().load(profileUrl).into(viewHolder.itemView.fromProfilePictureChatActivity)
-    }
-
-    override fun getLayout(): Int {
-        return R.layout.message_from
-    }
-}
-
-class ChatToItem(val text: String) : Item<ViewHolder>() {
-    override fun bind(viewHolder: ViewHolder, position: Int) {
-        Picasso.get().load(LatestMessagesFragment.currentUser?.profileImageUrl)
-            .into(viewHolder.itemView.toProfilePictureChatActivity)
-        viewHolder.itemView.toTextViewChatActivity.text = text
-    }
-
-    override fun getLayout(): Int {
-        return R.layout.message_to
     }
 }

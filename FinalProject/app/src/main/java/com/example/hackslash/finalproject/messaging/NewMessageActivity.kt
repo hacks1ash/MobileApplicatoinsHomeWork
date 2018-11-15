@@ -4,17 +4,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.hackslash.finalproject.R
+import com.example.hackslash.finalproject.UserItem
 import com.example.hackslash.finalproject.models.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_new_message.*
-import kotlinx.android.synthetic.main.contact_row.view.*
 
 class NewMessageActivity : AppCompatActivity() {
 
@@ -66,14 +64,4 @@ class NewMessageActivity : AppCompatActivity() {
     }
 }
 
-class UserItem(val user: User) : Item<ViewHolder>() {
-    override fun bind(viewHolder: ViewHolder, position: Int) {
-        viewHolder.itemView.contactUserNameTextViewNewMessage.text = user.displayName
 
-        Picasso.get().load(user.profileImageUrl).into(viewHolder.itemView.contactProfilePicImageViewNewMessage)
-    }
-
-    override fun getLayout(): Int {
-        return R.layout.contact_row
-    }
-}
