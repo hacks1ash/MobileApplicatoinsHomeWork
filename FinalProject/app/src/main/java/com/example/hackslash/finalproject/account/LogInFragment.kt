@@ -1,4 +1,4 @@
-package com.example.hackslash.finalproject
+package com.example.hackslash.finalproject.account
 
 import android.app.ProgressDialog
 import android.content.Context
@@ -13,6 +13,9 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
+import com.example.hackslash.finalproject.MainActivity
+import com.example.hackslash.finalproject.R
+import com.example.hackslash.finalproject.Utils
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 

@@ -19,4 +19,9 @@
     <string name="reset_password">Reset Password</string>
     <string name="remember_password_login">Remember password? Login</string>
     <string name="home">Home</string>
+    <string name="select_photo">Select Photo</string>
+    <string name="profile">Profile</string>
+    <string name="new_message">New Message</string>
+    <string name="enter_message">Enter Message</string>
+    <string name="send">Send</string>
 </resources>

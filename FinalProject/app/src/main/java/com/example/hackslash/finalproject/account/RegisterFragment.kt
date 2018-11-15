@@ -1,4 +1,4 @@
-package com.example.hackslash.finalproject
+package com.example.hackslash.finalproject.account
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -10,8 +10,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.hackslash.finalproject.MainActivity
+import com.example.hackslash.finalproject.R
+import com.example.hackslash.finalproject.Utils
+import com.example.hackslash.finalproject.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_register.*
 
 
@@ -83,6 +88,7 @@ class RegisterFragment : Fragment() {
             ?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "UserNameSet:Success")
+                    saveUserInfoToFirebaseDatabase()
                     startMainActivity()
                 } else {
                     Log.d(TAG, "UserNameSet:Failed")
@@ -134,6 +140,22 @@ class RegisterFragment : Fragment() {
         }
 
         return valid
+    }
+
+    private fun saveUserInfoToFirebaseDatabase() {
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
+        val email = FirebaseAuth.getInstance().currentUser?.email
+        val displayName = FirebaseAuth.getInstance().currentUser?.displayName
+        val reference = FirebaseDatabase.getInstance().getReference("/users/$uid")
+
+        val user = User(uid!!, email!!, displayName!!, "")
+        reference.setValue(user)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d(TAG, "Saved user to Database")
+                }
+            }
+
     }
 
     @Suppress("DEPRECATION")

@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
+import com.example.hackslash.finalproject.account.LogInFragment
+import com.example.hackslash.finalproject.account.ProfileFragment
+import com.example.hackslash.finalproject.messaging.LatestMessagesFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,6 +33,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_navigation, R.string.close_navigation)
             drawerLayout.addDrawerListener(toggle)
             toggle.syncState()
+
+            if (savedInstanceState == null) {
+                messagesFragment()
+            }
         } else {
             signInFragment()
         }
@@ -62,7 +69,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
 
             R.id.mainMenuHome -> {
-                removeFragments()
+                //removeFragments()
+                messagesFragment()
+            }
+
+            R.id.mainMenuProfile -> {
+                profileFragment()
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START)
@@ -112,6 +124,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun signInFragment() {
         val fragment = LogInFragment()
+        val manager = this.supportFragmentManager
+        val transaction = manager.beginTransaction()
+        transaction.replace(R.id.contentConstraintLayout, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+    private fun profileFragment() {
+        val fragment = ProfileFragment()
+        val manager = this.supportFragmentManager
+        val transaction = manager.beginTransaction()
+        transaction.replace(R.id.contentConstraintLayout, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+    private fun messagesFragment() {
+        val fragment = LatestMessagesFragment()
         val manager = this.supportFragmentManager
         val transaction = manager.beginTransaction()
         transaction.replace(R.id.contentConstraintLayout, fragment)
