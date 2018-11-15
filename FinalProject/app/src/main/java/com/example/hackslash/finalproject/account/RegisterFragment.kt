@@ -146,9 +146,10 @@ class RegisterFragment : Fragment() {
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         val email = FirebaseAuth.getInstance().currentUser?.email
         val displayName = FirebaseAuth.getInstance().currentUser?.displayName
+        val defaultProfilePic = "https://firebasestorage.googleapis.com/v0/b/hackslash-final.appspot.com/o/images%2Fuser-icon-png-person-user-profile-icon-20.png?alt=media&token=97bdfad1-41b0-40f0-ac26-6c05d1fb6c2f"
         val reference = FirebaseDatabase.getInstance().getReference("/users/$uid")
 
-        val user = User(uid!!, email!!, displayName!!, "")
+        val user = User(uid!!, email!!, displayName!!, defaultProfilePic)
         reference.setValue(user)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
