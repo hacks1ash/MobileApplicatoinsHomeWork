@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:height="150dp"
                 android:width="150dp"
-                android:background="@drawable/rounded_corners"
+                android:background="@drawable/rounded_corners_transparent"
                 android:layout_margin="10dp"
                 android:text="@string/select_photo"
                 android:textColor="#000"
@@ -33,19 +33,47 @@
 
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="MiGle Gurushidze"
               android:textColor="@color/colorPrimary"
-              android:textSize="30sp"
-              android:textStyle="bold"/>
+              android:textSize="15sp"
+              android:layout_marginTop="10dp"
+              android:id="@+id/verifiedStatusProfileFragmentTextView"/>
+
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="miglegurushidze@gmail.com"
+              android:textColor="@color/colorPrimary"
+              android:textSize="30sp"
+              android:textStyle="bold"
+              android:layout_marginTop="5dp"
+              android:id="@+id/userNameProfileFragmentTextView"/>
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
               android:textColor="@color/colorPrimary"
               android:textSize="20sp"
-              android:layout_marginTop="10dp"/>
+              android:layout_marginTop="10dp"
+              android:id="@+id/emailProfileFragmentTextView"/>
 
-    <Button android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="update"
-            android:id="@+id/updateData"/>
+    <LinearLayout android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:layout_marginTop="15dp">
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/update_profile"
+                android:id="@+id/updateData"
+                android:background="@drawable/rounded_corners"
+                android:padding="8dp"/>
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/resend_verification"
+                android:id="@+id/resendVerificationEmail"
+                android:background="@drawable/rounded_corners"
+                android:padding="8dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"/>
+
+    </LinearLayout>
+
 </LinearLayout>

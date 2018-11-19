@@ -64,6 +64,7 @@ class RegisterFragment : BaseFragment() {
             .addOnCompleteListener(this.activity!!) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "Create User with Email : Success")
+                    sendEmailVerification(auth)
                     setNewUserName()
                 } else {
                     Log.d(TAG, "Create User with Email : Fail")
@@ -85,6 +86,7 @@ class RegisterFragment : BaseFragment() {
                 if (task.isSuccessful) {
                     Log.d(TAG, "UserNameSet:Success")
                     saveUserInfoToFirebaseDatabase()
+                    clearInputs()
                     startMainActivity()
                 } else {
                     Log.d(TAG, "UserNameSet:Failed")
@@ -93,6 +95,23 @@ class RegisterFragment : BaseFragment() {
             }
 
     }
+
+    private fun sendEmailVerification(authentication: FirebaseAuth?) {
+
+        val currentUser = authentication?.currentUser
+
+        currentUser?.sendEmailVerification()
+            ?.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(activity, "Verification Email sent to : ${currentUser.email} ", Toast.LENGTH_LONG)
+                        .show()
+                } else {
+                    Log.e(TAG, "sendEmailVerification", task.exception)
+                    Toast.makeText(activity, "Failed to send verification email", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
 
     private fun validInputs(): Boolean {
         var valid = true
@@ -154,6 +173,13 @@ class RegisterFragment : BaseFragment() {
                 }
             }
 
+    }
+
+    private fun clearInputs() {
+        nameRegisterActivityEditText.text.clear()
+        emailRegisterActivityEditText.text.clear()
+        passwordRegisterActivityEditText.text.clear()
+        repeatPasswordRegisterActivityEditText.text.clear()
     }
 
     companion object {

@@ -76,6 +76,7 @@ class LogInFragment : BaseFragment() {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this.activity!!) { task ->
             if (task.isSuccessful) {
                 Log.d(TAG, "Sign in with Email : Success")
+                clearInputs()
                 startMainActivity()
             } else {
                 Log.d(TAG, "Sign in with Email : Fail")
@@ -153,6 +154,11 @@ class LogInFragment : BaseFragment() {
         }
 
         return valid
+    }
+
+    private fun clearInputs() {
+        emailSignInActivityEditText.text.clear()
+        passwordSignInActivityEditText.text.clear()
     }
 
     companion object {

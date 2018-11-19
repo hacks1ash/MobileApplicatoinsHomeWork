@@ -17,7 +17,7 @@ open class BaseActivity : AppCompatActivity() {
     fun signOut(auth: FirebaseAuth) {
         auth.signOut()
         updateUI(auth, null)
-        recreate()
+        finish()
     }
 
     fun updateUI(auth: FirebaseAuth, user: FirebaseUser?) {
