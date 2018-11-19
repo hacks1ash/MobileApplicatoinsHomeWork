@@ -1,16 +1,12 @@
 package com.example.hackslash.finalproject.account
 
-import android.app.ProgressDialog
-import android.content.Intent
 import android.os.Bundle
-import android.support.annotation.VisibleForTesting
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.hackslash.finalproject.MainActivity
+import com.example.hackslash.finalproject.BaseFragment
 import com.example.hackslash.finalproject.R
 import com.example.hackslash.finalproject.Utils
 import com.example.hackslash.finalproject.models.User
@@ -20,7 +16,7 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_register.*
 
 
-class RegisterFragment : Fragment() {
+class RegisterFragment : BaseFragment() {
 
     private lateinit var auth: FirebaseAuth
 
@@ -146,7 +142,8 @@ class RegisterFragment : Fragment() {
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         val email = FirebaseAuth.getInstance().currentUser?.email
         val displayName = FirebaseAuth.getInstance().currentUser?.displayName
-        val defaultProfilePic = "https://firebasestorage.googleapis.com/v0/b/hackslash-final.appspot.com/o/images%2Fuser-icon-png-person-user-profile-icon-20.png?alt=media&token=97bdfad1-41b0-40f0-ac26-6c05d1fb6c2f"
+        val defaultProfilePic =
+            "https://firebasestorage.googleapis.com/v0/b/hackslash-final.appspot.com/o/images%2Fuser-icon-png-person-user-profile-icon-20.png?alt=media&token=97bdfad1-41b0-40f0-ac26-6c05d1fb6c2f"
         val reference = FirebaseDatabase.getInstance().getReference("/users/$uid")
 
         val user = User(uid!!, email!!, displayName!!, defaultProfilePic)
@@ -157,38 +154,6 @@ class RegisterFragment : Fragment() {
                 }
             }
 
-    }
-
-    @Suppress("DEPRECATION")
-    @VisibleForTesting
-    val progressDialog by lazy {
-        ProgressDialog(activity)
-    }
-
-    private fun showProgressDialog() {
-        progressDialog.setMessage("Checking...")
-        progressDialog.isIndeterminate = true
-        progressDialog.show()
-
-    }
-
-    private fun hideProgressDialog() {
-        if (progressDialog.isShowing)
-            progressDialog.hide()
-    }
-
-    private fun startMainActivity() {
-        val intent = Intent(activity, MainActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun startLogInFragment() {
-        val fragment = LogInFragment()
-        val manager = activity?.supportFragmentManager
-        val transaction = manager?.beginTransaction()
-        transaction?.replace(R.id.contentConstraintLayout, fragment)
-        transaction?.addToBackStack(null)
-        transaction?.commit()
     }
 
     companion object {

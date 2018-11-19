@@ -27,6 +27,7 @@
         <activity android:name=".messaging.ChatActivity"
                   android:parentActivityName=".MainActivity">
         </activity>
+        <activity android:name=".BaseActivity"/>
     </application>
 
 </manifest>

@@ -1,11 +1,8 @@
 package com.example.hackslash.finalproject.messaging
 
-import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.View
-import android.view.inputmethod.InputMethodManager
+import com.example.hackslash.finalproject.BaseActivity
 import com.example.hackslash.finalproject.ChatFromItem
 import com.example.hackslash.finalproject.ChatToItem
 import com.example.hackslash.finalproject.R
@@ -20,7 +17,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_chat.*
 
-class ChatActivity : AppCompatActivity() {
+class ChatActivity : BaseActivity() {
 
     private val adapter = GroupAdapter<ViewHolder>()
 
@@ -123,11 +120,6 @@ class ChatActivity : AppCompatActivity() {
 
         val latestMessageToRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$to/$from")
         latestMessageToRef.setValue(chatMessage)
-    }
-
-    private fun hideKeyboard(view: View) {
-        val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     companion object {

@@ -1,25 +1,19 @@
 package com.example.hackslash.finalproject.account
 
-import android.app.ProgressDialog
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.support.annotation.VisibleForTesting
-import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
-import com.example.hackslash.finalproject.MainActivity
+import com.example.hackslash.finalproject.BaseFragment
 import com.example.hackslash.finalproject.R
 import com.example.hackslash.finalproject.Utils
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_sign_in.*
 
-class LogInFragment : Fragment() {
+class LogInFragment : BaseFragment() {
 
     private lateinit var auth: FirebaseAuth
 
@@ -122,7 +116,7 @@ class LogInFragment : Fragment() {
     }
 
     private fun emailValid(): Boolean {
-        var valid: Boolean
+        val valid: Boolean
         val email = emailResetPassSignInActivityEditText.text.toString()
 
         if (email.isEmpty()) {
@@ -159,43 +153,6 @@ class LogInFragment : Fragment() {
         }
 
         return valid
-    }
-
-    @Suppress("DEPRECATION")
-    @VisibleForTesting
-    val progressDialog by lazy {
-        ProgressDialog(activity)
-    }
-
-    private fun showProgressDialog() {
-        progressDialog.setMessage("Checking...")
-        progressDialog.isIndeterminate = true
-        progressDialog.show()
-
-    }
-
-    private fun hideProgressDialog() {
-        if (progressDialog.isShowing)
-            progressDialog.hide()
-    }
-
-    private fun hideKeyboard(view: View) {
-        val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view.windowToken, 0)
-    }
-
-    private fun startMainActivity() {
-        val intent = Intent(activity, MainActivity::class.java)
-        startActivity(intent)
-    }
-
-    private fun startRegisterFragment() {
-        val fragment = RegisterFragment()
-        val manager = activity?.supportFragmentManager
-        val transaction = manager?.beginTransaction()
-        transaction?.replace(R.id.contentConstraintLayout, fragment)
-        transaction?.addToBackStack(null)
-        transaction?.commit()
     }
 
     companion object {

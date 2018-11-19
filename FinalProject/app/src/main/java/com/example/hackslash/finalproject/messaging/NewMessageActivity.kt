@@ -2,7 +2,7 @@ package com.example.hackslash.finalproject.messaging
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import com.example.hackslash.finalproject.BaseActivity
 import com.example.hackslash.finalproject.R
 import com.example.hackslash.finalproject.UserItem
 import com.example.hackslash.finalproject.models.User
@@ -14,7 +14,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_new_message.*
 
-class NewMessageActivity : AppCompatActivity() {
+class NewMessageActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

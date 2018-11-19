@@ -2,9 +2,9 @@ package com.example.hackslash.finalproject.messaging
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
 import android.view.*
+import com.example.hackslash.finalproject.BaseFragment
 import com.example.hackslash.finalproject.LatestMessageItem
 import com.example.hackslash.finalproject.MainActivity
 import com.example.hackslash.finalproject.R
@@ -16,7 +16,7 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.fragment_latest_messages.*
 
-class LatestMessagesFragment : Fragment() {
+class LatestMessagesFragment : BaseFragment() {
 
     private val adapter = GroupAdapter<ViewHolder>()
     private lateinit var auth: FirebaseAuth
