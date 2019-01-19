@@ -16,4 +16,5 @@ class ChatToItem(val text: String) : Item<ViewHolder>() {
     override fun getLayout(): Int {
         return R.layout.message_to
     }
+
 }

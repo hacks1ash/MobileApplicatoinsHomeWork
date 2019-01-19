@@ -3,10 +3,9 @@ package com.example.hackslash.finalproject.messaging
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
+import android.util.Log.d
 import android.view.*
-import com.example.hackslash.finalproject.BaseFragment
-import com.example.hackslash.finalproject.LatestMessageItem
-import com.example.hackslash.finalproject.MainActivity
+import com.example.hackslash.finalproject.*
 import com.example.hackslash.finalproject.R
 import com.example.hackslash.finalproject.models.ChatMessage
 import com.example.hackslash.finalproject.models.User
@@ -14,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
+import kotlinx.android.synthetic.main.activity_new_message.*
 import kotlinx.android.synthetic.main.fragment_latest_messages.*
 
 class LatestMessagesFragment : BaseFragment() {
@@ -54,7 +54,15 @@ class LatestMessagesFragment : BaseFragment() {
             startActivity(intent)
         }
 
+        latestMassagesRecycleView.setOnTouchListener(object : OnSwipeTouchListener() {
+            override fun onSwipeBottom() {
+                d("Swipe", "Bottom")
+            }
 
+            override fun onSwipeTop() {
+                d("Swipe", "Top")
+            }
+        })
     }
 
     private fun listenForLatestMessages() {
@@ -127,4 +135,5 @@ class LatestMessagesFragment : BaseFragment() {
     companion object {
         var currentUser: User? = null
     }
+
 }

@@ -77,13 +77,13 @@ class LogInFragment : BaseFragment() {
             if (task.isSuccessful) {
                 Log.d(TAG, "Sign in with Email : Success")
                 clearInputs()
+                hideProgressDialog()
                 startMainActivity()
             } else {
                 Log.d(TAG, "Sign in with Email : Fail")
                 Toast.makeText(activity, "Authentication Failed", Toast.LENGTH_SHORT).show()
+                hideProgressDialog()
             }
-
-            hideProgressDialog()
         }
     }
 

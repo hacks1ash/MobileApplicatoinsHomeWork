@@ -185,4 +185,5 @@ class RegisterFragment : BaseFragment() {
     companion object {
         private const val TAG = "RegisterFragment"
     }
+
 }

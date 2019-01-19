@@ -20,6 +20,7 @@ open class BaseActivity : AppCompatActivity() {
         finish()
     }
 
+
     fun updateUI(auth: FirebaseAuth, user: FirebaseUser?) {
 
         val currentUser = auth.currentUser

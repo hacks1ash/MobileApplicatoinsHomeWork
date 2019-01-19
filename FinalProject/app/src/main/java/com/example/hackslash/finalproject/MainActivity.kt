@@ -2,9 +2,12 @@ package com.example.hackslash.finalproject
 
 import android.os.Bundle
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuItem
+import android.widget.Toast
+import com.example.hackslash.finalproject.messaging.LatestMessagesFragment
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.application_bar.*
@@ -44,11 +47,18 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     override fun onBackPressed() {
+        val currentFragment : Fragment = LatestMessagesFragment()
+
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
         }
+
+
+        if (currentFragment.isVisible)
+            Toast.makeText(this, "Match", Toast.LENGTH_SHORT).show()
+        else
+            Toast.makeText(this, "No Match", Toast.LENGTH_SHORT).show()
+            super.onBackPressed()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -62,7 +72,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             }
 
             R.id.mainMenuHome -> {
-                //removeFragments()
                 messagesFragment()
             }
 

@@ -3,6 +3,7 @@ package com.example.hackslash.finalproject.messaging
 import android.content.Intent
 import android.os.Bundle
 import com.example.hackslash.finalproject.BaseActivity
+import com.example.hackslash.finalproject.OnSwipeTouchListener
 import com.example.hackslash.finalproject.R
 import com.example.hackslash.finalproject.UserItem
 import com.example.hackslash.finalproject.models.User
@@ -23,6 +24,12 @@ class NewMessageActivity : BaseActivity() {
         this.title = "Select Contact"
 
         getAllContacts()
+
+        recycleViewNewMessageActivity.setOnTouchListener(object : OnSwipeTouchListener() {
+            override fun onSwipeRight() {
+                onBackPressed()
+            }
+        })
     }
 
     private fun getAllContacts() {
@@ -62,6 +69,7 @@ class NewMessageActivity : BaseActivity() {
     companion object {
         const val USER_KEY = "USER_KEY"
     }
+
 }
 
 

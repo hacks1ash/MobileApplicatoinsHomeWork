@@ -5,16 +5,15 @@ import android.content.Context
 import android.content.Intent
 import android.support.annotation.VisibleForTesting
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import com.example.hackslash.finalproject.account.LogInFragment
 import com.example.hackslash.finalproject.account.RegisterFragment
 import com.example.hackslash.finalproject.messaging.LatestMessagesFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_profile.*
+
 
 open class BaseFragment : Fragment() {
 

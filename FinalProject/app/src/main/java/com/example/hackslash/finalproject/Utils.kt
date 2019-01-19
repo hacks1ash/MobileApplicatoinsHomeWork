@@ -13,4 +13,5 @@ class Utils {
                     + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$"
         ).matcher(email).matches()
     }
+
 }

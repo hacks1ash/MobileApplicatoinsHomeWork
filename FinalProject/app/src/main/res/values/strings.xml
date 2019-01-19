@@ -28,4 +28,6 @@
     <string name="not_verified">Not Verified</string>
     <string name="resend_verification">Resend Verification</string>
     <string name="update_profile">Update Profile</string>
+    <string name="channel_name">FinalProjectChannel</string>
+    <string name="channel_description">FinalProjectChannelDescription</string>
 </resources>

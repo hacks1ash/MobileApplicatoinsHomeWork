@@ -14,4 +14,5 @@ class ChatFromItem(val text: String, val profileUrl: String) : Item<ViewHolder>(
     override fun getLayout(): Int {
         return R.layout.message_from
     }
+
 }

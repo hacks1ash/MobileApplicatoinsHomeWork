@@ -16,4 +16,5 @@ class UserItem(val user: User) : Item<ViewHolder>() {
     override fun getLayout(): Int {
         return R.layout.contact_row
     }
+
 }

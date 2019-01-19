@@ -45,4 +45,5 @@ class LatestMessageItem(val chatMessage: ChatMessage) : Item<ViewHolder>() {
     override fun getLayout(): Int {
         return R.layout.latest_message_row
     }
+
 }

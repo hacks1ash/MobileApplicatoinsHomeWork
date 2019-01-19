@@ -169,4 +169,5 @@ class ProfileFragment : BaseFragment() {
     companion object {
         private const val TAG = "ProfileFragment"
     }
+
 }

@@ -2,10 +2,7 @@ package com.example.hackslash.finalproject.messaging
 
 import android.os.Bundle
 import android.util.Log
-import com.example.hackslash.finalproject.BaseActivity
-import com.example.hackslash.finalproject.ChatFromItem
-import com.example.hackslash.finalproject.ChatToItem
-import com.example.hackslash.finalproject.R
+import com.example.hackslash.finalproject.*
 import com.example.hackslash.finalproject.models.ChatMessage
 import com.example.hackslash.finalproject.models.User
 import com.google.firebase.auth.FirebaseAuth
@@ -37,6 +34,12 @@ class ChatActivity : BaseActivity() {
             sendMessage()
             hideKeyboard(messageEditTextChatActivity)
         }
+
+        recycleViewChatActivity.setOnTouchListener(object : OnSwipeTouchListener() {
+            override fun onSwipeRight() {
+                onBackPressed()
+            }
+        })
     }
 
     private fun getMessages() {
@@ -125,4 +128,5 @@ class ChatActivity : BaseActivity() {
     companion object {
         private const val TAG = "ChatActivity"
     }
+
 }
