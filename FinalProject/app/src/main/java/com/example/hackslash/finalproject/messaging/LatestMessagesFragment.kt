@@ -55,13 +55,6 @@ class LatestMessagesFragment : BaseFragment() {
         }
 
         latestMassagesRecycleView.setOnTouchListener(object : OnSwipeTouchListener() {
-            override fun onSwipeBottom() {
-                d("Swipe", "Bottom")
-            }
-
-            override fun onSwipeTop() {
-                d("Swipe", "Top")
-            }
         })
     }
 

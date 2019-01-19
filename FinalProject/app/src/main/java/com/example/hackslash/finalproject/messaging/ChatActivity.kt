@@ -37,6 +37,7 @@ class ChatActivity : BaseActivity() {
 
         recycleViewChatActivity.setOnTouchListener(object : OnSwipeTouchListener() {
             override fun onSwipeRight() {
+                super.onSwipeRight()
                 onBackPressed()
             }
         })

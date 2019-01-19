@@ -1,5 +1,6 @@
 package com.example.hackslash.finalproject
 
+import android.util.Log.d
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
@@ -60,13 +61,21 @@ open class OnSwipeTouchListener : View.OnTouchListener {
         return gestureDetector.onTouchEvent(event)
     }
 
-    open fun onSwipeRight() {}
+    open fun onSwipeRight() {
+        d("Swipe", "Right")
+    }
 
-    open fun onSwipeLeft() {}
+    open fun onSwipeLeft() {
+        d("Swipe", "Left")
+    }
 
-    open fun onSwipeTop() {}
+    open fun onSwipeTop() {
+        d("Swipe", "Top")
+    }
 
-    open fun onSwipeBottom() {}
+    open fun onSwipeBottom() {
+        d("Swipe", "Bottom")
+    }
 
     companion object {
         const val SWIPE_THRESHOLD = 100

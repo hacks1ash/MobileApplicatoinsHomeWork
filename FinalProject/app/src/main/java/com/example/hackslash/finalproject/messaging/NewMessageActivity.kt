@@ -2,6 +2,7 @@ package com.example.hackslash.finalproject.messaging
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log.d
 import com.example.hackslash.finalproject.BaseActivity
 import com.example.hackslash.finalproject.OnSwipeTouchListener
 import com.example.hackslash.finalproject.R
@@ -13,7 +14,10 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_new_message.*
+import kotlinx.android.synthetic.main.application_bar.*
+import java.lang.Exception
 
 class NewMessageActivity : BaseActivity() {
 
@@ -27,7 +31,13 @@ class NewMessageActivity : BaseActivity() {
 
         recycleViewNewMessageActivity.setOnTouchListener(object : OnSwipeTouchListener() {
             override fun onSwipeRight() {
-                onBackPressed()
+                try {
+                    super.onSwipeRight()
+                    onBackPressed()
+                } catch (exception: Exception) {
+                    d("NewMessageActivity", exception.toString())
+                }
+
             }
         })
     }
