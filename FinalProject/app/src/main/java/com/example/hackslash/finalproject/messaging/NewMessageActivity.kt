@@ -1,10 +1,13 @@
 package com.example.hackslash.finalproject.messaging
 
 import android.content.Intent
+import android.graphics.Canvas
 import android.os.Bundle
-import android.util.Log.d
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
 import com.example.hackslash.finalproject.BaseActivity
-import com.example.hackslash.finalproject.OnSwipeTouchListener
+import com.example.hackslash.finalproject.OnSwipeTouchListener_
 import com.example.hackslash.finalproject.R
 import com.example.hackslash.finalproject.UserItem
 import com.example.hackslash.finalproject.models.User
@@ -14,10 +17,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_new_message.*
-import kotlinx.android.synthetic.main.application_bar.*
-import java.lang.Exception
 
 class NewMessageActivity : BaseActivity() {
 
@@ -29,17 +29,65 @@ class NewMessageActivity : BaseActivity() {
 
         getAllContacts()
 
-        recycleViewNewMessageActivity.setOnTouchListener(object : OnSwipeTouchListener() {
-            override fun onSwipeRight() {
-                try {
-                    super.onSwipeRight()
-                    onBackPressed()
-                } catch (exception: Exception) {
-                    d("NewMessageActivity", exception.toString())
-                }
+//        recycleViewNewMessageActivity.setOnTouchListener(object : OnSwipeTouchListener() {
+//            override fun onSwipeRight() {
+////
+//                super.onSwipeRight()
+//                onBackPressed()
+//
+//            }
+//        })
 
+        initSwipeSavedSearchesRecyclerView()
+
+
+        recycleViewNewMessageActivity.setOnTouchListener(object : OnSwipeTouchListener_(this) {
+            override fun onSwipeRight() {
+                super.onSwipeRight()
+                onBackPressed()
             }
         })
+    }
+
+
+    private fun initSwipeSavedSearchesRecyclerView() {
+        val simpleItemTouchCallback =
+            object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
+                    if (direction == ItemTouchHelper.RIGHT) {
+                        onBackPressed()
+                    }
+                }
+
+                override fun onChildDraw(
+                    c: Canvas,
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    dX: Float,
+                    dY: Float,
+                    actionState: Int,
+                    isCurrentlyActive: Boolean
+                ) {
+
+                    if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+
+
+                    }
+                    super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                }
+            }
+
+        val itemTouchHelper = ItemTouchHelper(simpleItemTouchCallback)
+        itemTouchHelper.attachToRecyclerView(recycleViewNewMessageActivity)
     }
 
     private fun getAllContacts() {
@@ -67,6 +115,8 @@ class NewMessageActivity : BaseActivity() {
                     finish()
                 }
 
+                recycleViewNewMessageActivity.layoutManager = LinearLayoutManager(this@NewMessageActivity)
+                recycleViewNewMessageActivity.setHasFixedSize(true)
                 recycleViewNewMessageActivity.adapter = adapter
 
             }
